@@ -31,6 +31,8 @@ export class MenuItemComponent implements OnDestroy, FocusableOption {
 
     // Add Fundamental-Styles class for menu item
     @HostBinding('class.fd-menu__item') menuItemClass = true;
+    @HostBinding('class.fd-menu__link') menuLinkClass = true;
+
     @HostBinding('class.trigger') isTrigger = false;
     @HostBinding('class.cascades-right') get cascadesRight(): boolean {
         return this.cascadeDirection === 'right';

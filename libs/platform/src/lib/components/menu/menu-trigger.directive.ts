@@ -54,7 +54,7 @@ export class MenuTriggerDirective implements OnDestroy, AfterContentInit {
         private _viewContainerRef: ViewContainerRef,
         @Optional() @Self() private _menuItem: MenuItemComponent,
         @Optional() private _parentMenu: MenuComponent
-    ) {}
+    ) { }
 
     ngAfterContentInit() {
         if (this._isMenuItem()) {
@@ -124,7 +124,15 @@ export class MenuTriggerDirective implements OnDestroy, AfterContentInit {
     }
 
     toggleMenu() {
-        this._isMenuOpen ? this.destroyMenu() : this.openMenu();
+        /**
+         * Need to add delay here to ensure that any "closeMenu" operation which
+         * has been invoked within an "outsideClickSubscription" gets resolved
+         * before "openMenu" is called. This can happen when there are multiple
+         * triggers for the same menu.
+         */
+        setTimeout(() => {
+            this._isMenuOpen ? this.destroyMenu() : this.openMenu();
+        }, 0);
     }
 
     openMenu() {
@@ -137,6 +145,9 @@ export class MenuTriggerDirective implements OnDestroy, AfterContentInit {
         this._overlayRef.attach(this._portal);
 
         // add subscription to capture clicks outside menu
+        if (this.outsideClickSubscription) {
+            this.outsideClickSubscription.unsubscribe();
+        }
         this.outsideClickSubscription = fromEvent<MouseEvent>(document, 'click')
             .pipe(
                 filter((event) => {
@@ -155,6 +166,9 @@ export class MenuTriggerDirective implements OnDestroy, AfterContentInit {
             });
 
         // add subscription to menu 'close' event
+        if (this.menuCloseSubscription) {
+            this.menuCloseSubscription.unsubscribe();
+        }
         this.menuCloseSubscription = this._menu.close.subscribe((method: MenuCloseMethod) => {
             this.destroyMenu();
             // Need to close parent menu if closing of menu was done by terminating action
@@ -165,6 +179,9 @@ export class MenuTriggerDirective implements OnDestroy, AfterContentInit {
 
         // add subscription to parent menu 'close' event
         if (this._parentMenu) {
+            if (this.parentMenuCloseSubscription) {
+                this.parentMenuCloseSubscription.unsubscribe();
+            }
             this.parentMenuCloseSubscription = this._parentMenu.close.subscribe((method: MenuCloseMethod) => {
                 this.closeMenu();
             });
