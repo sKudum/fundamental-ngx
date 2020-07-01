@@ -1,0 +1,88 @@
+<div>
+    <button mat-raised-button (click)="openDialog()">Open Dialog</button>
+
+</div>
+
+<!--<h4>Basic mat-select</h4>-->
+<!--<mat-form-field>-->
+<!--    <mat-label>Favorite food</mat-label>-->
+<!--    <mat-select>-->
+<!--        <mat-option *ngFor="let food of foods" [value]="food.value">-->
+<!--            {{food.viewValue}}-->
+<!--        </mat-option>-->
+<!--    </mat-select>-->
+<!--</mat-form-field>-->
+
+
+<fd-select placeholder="Select an option">
+    <fd-option *ngFor="let food of foods" [value]="food.value">
+        {{food.viewValue}}
+    </fd-option>
+</fd-select>
+
+
+<!--<ng-template #dialogDef>-->
+
+<!--    <mat-dialog-content>-->
+<!--        <h3>Select inside dialog</h3>-->
+
+
+<!--        <fd-select placeholder="Select an option">-->
+<!--            <fd-option *ngFor="let food of foods" [value]="food.value">-->
+<!--                {{food.viewValue}}-->
+<!--            </fd-option>-->
+<!--        </fd-select>-->
+
+
+<!--    </mat-dialog-content>-->
+<!--    <mat-dialog-actions align="end">-->
+<!--        <button mat-button mat-dialog-close>Cancel</button>-->
+<!--        <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button>-->
+<!--    </mat-dialog-actions>-->
+<!--</ng-template>-->
+
+
+<ng-template let-dialog let-dialogConfig="dialogConfig" #dialogRef>
+    <fd-dialog [dialogConfig]="dialogConfig" [dialogRef]="dialog">
+        <fd-dialog-header>
+            <h1 fd-dialog-title>The History of Pineapple</h1>
+            <button fd-dialog-close-button (click)="dialog.dismiss('Close button')"></button>
+        </fd-dialog-header>
+
+        <fd-dialog-body>
+            Are you interested in The Great History of Pineapple?
+
+                    <fd-select placeholder="Select an option">
+                        <fd-option *ngFor="let food of foods" [value]="food.value">
+                            {{food.viewValue}}
+                        </fd-option>
+                    </fd-select>
+        </fd-dialog-body>
+
+        <fd-dialog-footer>
+            <fd-dialog-footer-button>
+                <button
+                    fd-button
+                    fdType="emphasized"
+                    fd-dialog-decisive-button
+                    [compact]="true"
+                    (click)="dialog.close('Continue')"
+                >
+                    Interested
+                </button>
+            </fd-dialog-footer-button>
+
+            <fd-dialog-footer-button>
+                <button
+                    fd-button
+                    fdType="transparent"
+                    fd-dialog-decisive-button
+                    [compact]="true"
+                    (click)="dialog.dismiss('Cancel')"
+                >
+                    Cancel
+                </button>
+            </fd-dialog-footer-button>
+        </fd-dialog-footer>
+    </fd-dialog>
+</ng-template>

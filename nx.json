@@ -20,6 +20,13 @@
         },
         "platform": {
             "tags": ["fdp"]
+        },
+        "play": {
+            "tags": []
+        },
+        "play-e2e": {
+            "tags": [],
+            "implicitDependencies": ["play"]
         }
     }
 }

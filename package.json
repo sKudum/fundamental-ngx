@@ -80,6 +80,7 @@
     "@angular/compiler": "~9.1.11",
     "@angular/core": "~9.1.11",
     "@angular/forms": "~9.1.11",
+    "@angular/material": "^9.2.4",
     "@angular/platform-browser": "~9.1.11",
     "@angular/platform-browser-dynamic": "~9.1.11",
     "@angular/router": "~9.1.11",
@@ -154,7 +155,14 @@
     "ts-node": "8.10.2",
     "tslint": "6.1.2",
     "typedoc": "0.16.11",
-    "typescript": "3.7.5"
+    "typescript": "3.7.5",
+    "jest-preset-angular": "8.1.2",
+    "@nrwl/jest": "9.3.0",
+    "jest": "25.2.3",
+    "@types/jest": "25.1.4",
+    "ts-jest": "25.2.1",
+    "cypress": "^4.1.0",
+    "@nrwl/cypress": "9.3.0"
   },
   "pre-commit": {
     "color": true,
