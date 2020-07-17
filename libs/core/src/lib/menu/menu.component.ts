@@ -109,7 +109,7 @@ export class MenuComponent implements AfterContentInit, AfterViewInit, OnDestroy
     @Input()
     openOnHoverTime: number = 0;
 
-    /** Display menu without integrated popover */
+    /** Configuration of menu in mobile view mode */
     @Input()
     mobileConfig: MobileModeConfig = { cancelButtonText: 'Cancel' };
 

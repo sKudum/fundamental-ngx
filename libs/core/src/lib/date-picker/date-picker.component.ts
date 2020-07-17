@@ -1,13 +1,18 @@
 import {
+    AfterViewInit,
     ChangeDetectionStrategy,
     ChangeDetectorRef,
     Component,
+    ComponentRef,
+    ElementRef,
     EventEmitter,
-    forwardRef,
-    HostBinding,
+    forwardRef, HostListener,
+    Injector,
     Input,
+    OnDestroy,
     Optional,
     Output,
+    TemplateRef,
     ViewChild,
     ViewEncapsulation
 } from '@angular/core';
@@ -20,7 +25,10 @@ import { FdRangeDate } from '../calendar/models/fd-range-date';
 import { DateFormatParser } from './format/date-parser';
 import { DatePipe } from '@angular/common';
 import { FormStates } from '../form/form-control/form-states';
-import { CalendarYearGrid, SpecialDayRule } from '../..';
+import { CalendarYearGrid, DynamicComponentService, MobileModeConfig, SpecialDayRule } from '../..';
+import { DatePickerMobileComponent } from './date-picker-mobile/date-picker-mobile.component';
+import { DATE_PICKER_COMPONENT } from './date-picker.interface';
+import { FdScreenOrientation, screenOrientation } from '../utils/functions/screen-orientation';
 
 /**
  * The datetime picker component is an opinionated composition of the fd-popover and
@@ -56,20 +64,7 @@ import { CalendarYearGrid, SpecialDayRule } from '../..';
     encapsulation: ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DatePickerComponent implements ControlValueAccessor, Validator {
-    /** @hidden The value of the input */
-    inputFieldDate: string = null;
-
-    /** @hidden Whether the date input is invalid */
-    isInvalidDateInput: boolean = false;
-
-    /** @hidden Whether the date picker is open */
-    isOpen: boolean = false;
-
-    /** @hidden */
-    @ViewChild(CalendarComponent)
-    calendarComponent: CalendarComponent;
-
+export class DatePickerComponent implements ControlValueAccessor, Validator, AfterViewInit, OnDestroy {
     /** The type of calendar, 'single' for single date selection or 'range' for a range of dates. */
     @Input()
     type: CalendarType = 'single';
@@ -201,6 +196,14 @@ export class DatePickerComponent implements ControlValueAccessor, Validator {
     @Input()
     showWeekNumbers: boolean = true;
 
+    /** Whether to display in mobile mode. */
+    @Input()
+    mobile: boolean;
+
+    /** Configuration of menu in mobile view mode */
+    @Input()
+    mobileConfig: MobileModeConfig = {cancelButtonText: 'Cancel'};
+
     /** Fired when a new date is selected. */
     @Output()
     public readonly selectedDateChange: EventEmitter<FdDate> = new EventEmitter<FdDate>();
@@ -212,6 +215,36 @@ export class DatePickerComponent implements ControlValueAccessor, Validator {
     /** Event thrown every time calendar active view is changed */
     @Output()
     public readonly activeViewChange: EventEmitter<FdCalendarView> = new EventEmitter<FdCalendarView>();
+
+    /** @hidden Emits event when the date picker is opened/closed */
+    @Output()
+    isOpenChange: EventEmitter<boolean> = new EventEmitter<boolean>();
+
+    /** @hidden */
+    @ViewChild(CalendarComponent)
+    calendarComponent: CalendarComponent;
+
+    /** @hidden */
+    @ViewChild('datePickerTemplate')
+    datePickerTemplateRef: TemplateRef<any>;
+
+    /** @hidden The value of the input */
+    inputFieldDate: string = null;
+
+    /** @hidden Whether the date input is invalid */
+    isInvalidDateInput: boolean = false;
+
+    /** @hidden Whether the date picker is open */
+    isOpen: boolean = false;
+
+    /** @hidden */
+    screenOrientation: FdScreenOrientation;
+
+    /** @hidden */
+    fdScreenOrientation = FdScreenOrientation;
+
+    /** @hidden */
+    private _mobileModeComponentRef: ComponentRef<DatePickerMobileComponent>;
 
     /** @hidden */
     onChange: any = (selected: any) => {};
@@ -246,6 +279,11 @@ export class DatePickerComponent implements ControlValueAccessor, Validator {
         return false;
     };
 
+    @HostListener('window:resize')
+    setScreenOrientation(): void {
+        this.screenOrientation = screenOrientation(window);
+    }
+
     /**
      * Method that handle calendar active view change and throws event.
      */
@@ -265,6 +303,7 @@ export class DatePickerComponent implements ControlValueAccessor, Validator {
         if (!this.disabled) {
             this.onTouched();
             this.isOpen = true;
+            this.isOpenChange.emit(this.isOpen);
         }
     }
 
@@ -272,12 +311,14 @@ export class DatePickerComponent implements ControlValueAccessor, Validator {
     public toggleCalendar(): void {
         this.onTouched();
         this.isOpen = !this.isOpen;
+        this.isOpenChange.emit(this.isOpen);
     }
 
     /** Closes the calendar if it is open */
     public closeCalendar(): void {
         if (this.isOpen) {
             this.isOpen = false;
+            this.isOpenChange.emit(this.isOpen);
         }
     }
 
@@ -325,9 +366,20 @@ export class DatePickerComponent implements ControlValueAccessor, Validator {
     /** @hidden */
     constructor(
         public dateAdapter: DateFormatParser,
+        private _elementRef: ElementRef,
         private _changeDetectionRef: ChangeDetectorRef,
+        private _dynamicComponentService: DynamicComponentService,
         @Optional() private _datePipe: DatePipe
     ) {}
+
+    ngAfterViewInit() {
+        this.setScreenOrientation();
+        this._setupMobileMode();
+    }
+
+    ngOnDestroy() {
+        this._destroyMobileComponent();
+    }
 
     /**
      * @hidden
@@ -497,6 +549,11 @@ export class DatePickerComponent implements ControlValueAccessor, Validator {
         }
     }
 
+    handleOpenChange(isOpen: boolean): void {
+        this.isOpen = isOpen;
+        this.isOpenChange.emit(isOpen)
+    }
+
     /** Method that provides information if model selected date/dates have properly types and are valid */
     public isModelValid(): boolean {
         if (this.type === 'single') {
@@ -558,6 +615,26 @@ export class DatePickerComponent implements ControlValueAccessor, Validator {
             return customFormattedDate;
         } else {
             return this._datePipe.transform(fdDate.toDate(), this.format, null, this.locale);
+        }
+    }
+
+    private _destroyMobileComponent(): void {
+        if (this._mobileModeComponentRef) {
+            this._mobileModeComponentRef.destroy();
+        }
+    }
+
+    private _setupMobileMode(): void {
+        if (this.mobile) {
+            this._mobileModeComponentRef = this._dynamicComponentService
+                .createDynamicComponent<DatePickerMobileComponent>(
+                    this.datePickerTemplateRef,
+                    DatePickerMobileComponent,
+                    {container: this._elementRef.nativeElement},
+                    {
+                        injector: Injector.create({providers: [{provide: DATE_PICKER_COMPONENT, useValue: this}]}),
+                    }
+                )
         }
     }
 }

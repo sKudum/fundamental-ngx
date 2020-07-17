@@ -3,7 +3,7 @@ import { FdDate } from '@fundamental-ngx/core';
 
 @Component({
     selector: 'fd-date-picker-single-example',
-    template: ` <fd-date-picker [type]="'single'" [(ngModel)]="date"></fd-date-picker>
+    template: ` <fd-date-picker [type]="'single'" (isOpenChange)="test($event)" [(ngModel)]="date"></fd-date-picker>
         <br />
         <div>Selected Date: {{ date ? date.toDateString() : 'null' }}</div>
         <br />
@@ -12,4 +12,8 @@ import { FdDate } from '@fundamental-ngx/core';
 })
 export class DatePickerSingleExampleComponent {
     date = FdDate.getToday();
+
+    test(event: boolean) {
+        console.log(event);
+    }
 }
