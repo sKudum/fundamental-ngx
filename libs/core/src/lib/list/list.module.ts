@@ -11,6 +11,11 @@ import {
     ListTitleDirective
 } from './list.directives';
 import { ListMessageDirective } from './list-message.directive';
+import { ListLinkDirective } from './directives/list-link.directive';
+import { ListFormItemDirective } from './directives/list-form-item.directive';
+import { ListBylineDirective } from './directives/list-byline.directive';
+import { ListContentDirective } from './directives/list-content.directive';
+import { ListThumbnailDirective } from './directives/list-thumbnail.directive';
 @NgModule({
     declarations: [
         ListComponent,
@@ -21,7 +26,12 @@ import { ListMessageDirective } from './list-message.directive';
         ListGroupHeaderDirective,
         ListIconDirective,
         ListFooterDirective,
-        ListMessageDirective
+        ListMessageDirective,
+        ListLinkDirective,
+        ListFormItemDirective,
+        ListBylineDirective,
+        ListContentDirective,
+        ListThumbnailDirective
     ],
     imports: [CommonModule],
     exports: [
@@ -33,7 +43,12 @@ import { ListMessageDirective } from './list-message.directive';
         ListGroupHeaderDirective,
         ListIconDirective,
         ListFooterDirective,
-        ListMessageDirective
+        ListMessageDirective,
+        ListLinkDirective,
+        ListFormItemDirective,
+        ListBylineDirective,
+        ListContentDirective,
+        ListThumbnailDirective
     ]
 })
 export class ListModule {}
