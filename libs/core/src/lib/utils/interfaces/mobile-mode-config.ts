@@ -1,3 +1,5 @@
+import { DialogConfig } from '../../..';
+
 export interface MobileModeConfig {
 
     /** Dialog Title */
@@ -12,4 +14,6 @@ export interface MobileModeConfig {
     /** Defines if the close button should appear */
     hasCloseButton?: boolean;
 
+    /** Passes custom configuration of the Dialog window */
+    dialogConfig?: DialogConfig;
 }

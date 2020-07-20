@@ -1,10 +1,13 @@
 import { ElementRef, isDevMode, TemplateRef, ViewChild } from '@angular/core';
-import { DialogConfig, DialogRef, DialogService, MobileModeConfig } from '@fundamental-ngx/core';
-import { MobileModeControl } from '../interfaces/mobile-component.interface';
+import { DialogConfig } from '../../dialog/dialog-utils/dialog-config.class';
+import { DialogRef } from '../../dialog/dialog-utils/dialog-ref.class';
+import { DialogService } from '../../dialog/dialog-service/dialog.service';
+import { MobileModeConfig } from '../../utils/interfaces/mobile-mode-config';
+import { MobileControl } from '../interfaces/mobile-control.interface';
 import { MOBILE_CONFIG_ERROR } from '../consts';
 import { Subject } from 'rxjs';
 
-export abstract class MobileBase<T> {
+export abstract class MobileControlBase<T> {
     /** @hidden */
     @ViewChild('dialogTemplate') dialogTemplate: TemplateRef<any>;
 
@@ -20,15 +23,17 @@ export abstract class MobileBase<T> {
     constructor(
         protected _elementRef: ElementRef,
         protected _dialogService: DialogService,
-        protected _component: MobileModeControl & T) {
+        protected _component: MobileControl & T) {
 
         this.mobileModeConfig = this._getMobileModeConfig();
     }
 
+    /** @hidden */
     get dialogConfig(): DialogConfig {
-        return this._component.dialogConfig || {};
+        return this.mobileModeConfig.dialogConfig || {};
     }
 
+    /** @hidden */
     private _getMobileModeConfig(): MobileModeConfig {
         if (this._component.mobileConfig) {
             return this._component.mobileConfig;

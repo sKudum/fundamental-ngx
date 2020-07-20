@@ -1,17 +1,14 @@
 <ng-template let-dialog let-dialogConfig="dialogConfig" #dialogTemplate>
     <fd-dialog [dialogConfig]="dialogConfig" [dialogRef]="dialog">
 
-        <ng-container *ngTemplateOutlet="header"></ng-container>
-        <ng-template #header>
-            <fd-dialog-header *ngIf="_component.screenOrientation === screenOrientation.PORTRAIT">
-                <h1 *ngIf="mobileModeConfig.title" fd-dialog-title>{{mobileModeConfig.title}}</h1>
-                <button *ngIf="mobileModeConfig.hasCloseButton"
-                        fd-dialog-close-button
-                        [mobile]="true"
-                        (click)="cancel()">
-                </button>
-            </fd-dialog-header>
-        </ng-template>
+        <fd-dialog-header>
+            <h1 *ngIf="mobileModeConfig.title" fd-dialog-title>{{mobileModeConfig.title}}</h1>
+            <button *ngIf="mobileModeConfig.hasCloseButton"
+                    fd-dialog-close-button
+                    [mobile]="true"
+                    (click)="cancel()">
+            </button>
+        </fd-dialog-header>
 
         <fd-dialog-body>
             <ng-container *ngTemplateOutlet="childContent"></ng-container>

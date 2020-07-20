@@ -6,7 +6,8 @@ import {
     ComponentRef,
     ElementRef,
     EventEmitter,
-    forwardRef, HostListener,
+    forwardRef,
+    HostListener,
     Injector,
     Input,
     OnDestroy,
@@ -25,11 +26,11 @@ import { FdRangeDate } from '../calendar/models/fd-range-date';
 import { DateFormatParser } from './format/date-parser';
 import { DatePipe } from '@angular/common';
 import { FormStates } from '../form/form-control/form-states';
-import { CalendarYearGrid, DynamicComponentService, MobileModeConfig, SpecialDayRule } from '../..';
+import { CalendarYearGrid, DynamicComponentService, SpecialDayRule } from '../..';
 import { DatePickerMobileComponent } from './date-picker-mobile/date-picker-mobile.component';
-import { DATE_PICKER_COMPONENT } from './date-picker.interface';
+import { DATE_PICKER_COMPONENT, DatePickerInterface } from './date-picker.interface';
 import { FdScreenOrientation, screenOrientation } from '../utils/functions/screen-orientation';
-
+import { MobileModeConfig } from '../utils/interfaces/mobile-mode-config';
 /**
  * The datetime picker component is an opinionated composition of the fd-popover and
  * fd-calendar components to accomplish the UI pattern for picking a date.
@@ -64,7 +65,7 @@ import { FdScreenOrientation, screenOrientation } from '../utils/functions/scree
     encapsulation: ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DatePickerComponent implements ControlValueAccessor, Validator, AfterViewInit, OnDestroy {
+export class DatePickerComponent implements ControlValueAccessor, DatePickerInterface, Validator, AfterViewInit, OnDestroy {
     /** The type of calendar, 'single' for single date selection or 'range' for a range of dates. */
     @Input()
     type: CalendarType = 'single';
@@ -91,7 +92,7 @@ export class DatePickerComponent implements ControlValueAccessor, Validator, Aft
 
     /** The currently selected FdDates model start and end in range mode. */
     @Input()
-    public selectedRangeDate: FdRangeDate = { start: null, end: null };
+    public selectedRangeDate: FdRangeDate = {start: null, end: null};
 
     /** The day of the week the calendar should start on. 1 represents Sunday, 2 is Monday, 3 is Tuesday, and so on. */
     @Input()
@@ -202,7 +203,7 @@ export class DatePickerComponent implements ControlValueAccessor, Validator, Aft
 
     /** Configuration of menu in mobile view mode */
     @Input()
-    mobileConfig: MobileModeConfig = {cancelButtonText: 'Cancel'};
+    mobileConfig: MobileModeConfig = { cancelButtonText: 'Cancel', hasCloseButton: true };
 
     /** Fired when a new date is selected. */
     @Output()
@@ -244,7 +245,7 @@ export class DatePickerComponent implements ControlValueAccessor, Validator, Aft
     fdScreenOrientation = FdScreenOrientation;
 
     /** @hidden */
-    private _mobileModeComponentRef: ComponentRef<DatePickerMobileComponent>;
+    mobileModeComponentRef: ComponentRef<DatePickerMobileComponent>;
 
     /** @hidden */
     onChange: any = (selected: any) => {};
@@ -348,7 +349,7 @@ export class DatePickerComponent implements ControlValueAccessor, Validator, Aft
         ) {
             this.inputFieldDate =
                 this._formatDate(dates.start) + this.dateAdapter.rangeDelimiter + this._formatDate(dates.end);
-            this.selectedRangeDate = { start: dates.start, end: dates.end };
+            this.selectedRangeDate = {start: dates.start, end: dates.end};
             this.selectedRangeDateChange.emit(this.selectedRangeDate);
             this.onChange(this.selectedRangeDate);
             this.isInvalidDateInput = !this.isModelValid();
@@ -393,10 +394,10 @@ export class DatePickerComponent implements ControlValueAccessor, Validator, Aft
         return this.isModelValid()
             ? null
             : {
-                  dateValidation: {
-                      valid: false
-                  }
-              };
+                dateValidation: {
+                    valid: false
+                }
+            };
     }
 
     /** @hidden */
@@ -447,7 +448,7 @@ export class DatePickerComponent implements ControlValueAccessor, Validator, Aft
             selected = <FdRangeDate>selected;
 
             if (selected.start) {
-                this.selectedRangeDate = { start: selected.start, end: selected.end };
+                this.selectedRangeDate = {start: selected.start, end: selected.end};
 
                 if (this._isRangeModelValid(this.selectedRangeDate)) {
                     this._refreshCurrentlyDisplayedCalendarDate(selected.start);
@@ -514,9 +515,9 @@ export class DatePickerComponent implements ControlValueAccessor, Validator, Aft
 
                 /** If the end date is before the start date, there is need to replace them  */
                 if (firstDate.getTimeStamp() > secondDate.getTimeStamp() && secondDate.isDateValid()) {
-                    selectedRangeDate = { start: secondDate, end: firstDate };
+                    selectedRangeDate = {start: secondDate, end: firstDate};
                 } else {
-                    selectedRangeDate = { start: firstDate, end: secondDate };
+                    selectedRangeDate = {start: firstDate, end: secondDate};
                 }
 
                 this.isInvalidDateInput = !this._isRangeModelValid(selectedRangeDate);
@@ -619,20 +620,20 @@ export class DatePickerComponent implements ControlValueAccessor, Validator, Aft
     }
 
     private _destroyMobileComponent(): void {
-        if (this._mobileModeComponentRef) {
-            this._mobileModeComponentRef.destroy();
+        if (this.mobileModeComponentRef) {
+            this.mobileModeComponentRef.destroy();
         }
     }
 
     private _setupMobileMode(): void {
         if (this.mobile) {
-            this._mobileModeComponentRef = this._dynamicComponentService
+            this.mobileModeComponentRef = this._dynamicComponentService
                 .createDynamicComponent<DatePickerMobileComponent>(
                     this.datePickerTemplateRef,
                     DatePickerMobileComponent,
                     {container: this._elementRef.nativeElement},
                     {
-                        injector: Injector.create({providers: [{provide: DATE_PICKER_COMPONENT, useValue: this}]}),
+                        injector: Injector.create({providers: [{provide: DATE_PICKER_COMPONENT, useValue: this}]})
                     }
                 )
         }

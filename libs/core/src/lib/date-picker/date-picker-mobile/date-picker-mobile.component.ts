@@ -1,24 +1,17 @@
 import { Component, ElementRef, Inject, OnInit, TemplateRef } from '@angular/core';
-import { DialogService } from '@fundamental-ngx/core';
-import { Subscription } from 'rxjs';
+import { DialogService } from '../../dialog/dialog-service/dialog.service';
 import { DATE_PICKER_COMPONENT, DatePickerInterface } from '../date-picker.interface';
-import { MobileBase } from '../../utils/base-class/mobile-base.class';
-import { FdScreenOrientation } from '../../utils/functions/screen-orientation';
+import { MobileControlBase } from '../../utils/base-class/mobile-control-base.class';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
-  selector: 'fd-date-picker-mobile',
-  templateUrl: './date-picker-mobile.component.html',
-  styleUrls: ['./date-picker-mobile.component.scss']
+    selector: 'fd-date-picker-mobile',
+    templateUrl: './date-picker-mobile.component.html',
+    styleUrls: ['./date-picker-mobile.component.scss']
 })
-export class DatePickerMobileComponent extends MobileBase<DatePickerInterface> implements OnInit {
+export class DatePickerMobileComponent extends MobileControlBase<DatePickerInterface> implements OnInit {
     /** @hidden External content */
     childContent: TemplateRef<any> = null;
-
-    /** @hidden External content */
-    screenOrientation = FdScreenOrientation;
-
-    /** @hidden */
-    private _subscriptions = new Subscription();
 
     constructor(
         elementRef: ElementRef,
@@ -53,11 +46,10 @@ export class DatePickerMobileComponent extends MobileBase<DatePickerInterface> i
         });
     }
 
+    /** @hidden */
     private _listenOnOpenChange() {
-
-        this._subscriptions.add(
-            this._component.isOpenChange
-                .subscribe(isOpen => isOpen ? this._openDialog() : this.dialogRef.close())
-        )
+        this._component.isOpenChange.pipe(
+            takeUntil(this._onDestroy$)
+        ).subscribe(isOpen => isOpen ? this._openDialog() : this.dialogRef.close())
     }
 }

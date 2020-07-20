@@ -17,7 +17,7 @@ import { DatePickerFormatExampleComponent } from './examples/date-picker-format-
 import { DatePickerComplexI18nExampleComponent } from './examples/date-picker-complex-i18n-example/date-picker-complex-i18n-example.component';
 import { DatePickerRangeDisabledExampleComponent } from './examples/date-picker-range-disabled-example/date-picker-range-disabled-example.component';
 import { DatePickerDisableFuncExampleComponent } from './examples/date-picker-disable-func-example/date-picker-disable-func-example.component';
-import { SegmentedButtonModule, DatePickerModule } from '@fundamental-ngx/core';
+import { DatePickerModule, SegmentedButtonModule } from '@fundamental-ngx/core';
 import { DatePickerMobileExampleComponent } from './examples/date-picker-mobile-example.component';
 import { DatePickerMobileModule } from '@fundamental-ngx/core';
 
@@ -26,8 +26,8 @@ const routes: Routes = [
         path: '',
         component: DatePickerHeaderComponent,
         children: [
-            { path: '', component: DatePickerDocsComponent },
-            { path: 'api', component: ApiComponent, data: { content: API_FILES.datePicker } }
+            {path: '', component: DatePickerDocsComponent},
+            {path: 'api', component: ApiComponent, data: {content: API_FILES.datePicker}}
         ]
     }
 ];
@@ -53,4 +53,5 @@ const routes: Routes = [
         DatePickerRangeDisabledExampleComponent
     ]
 })
-export class DatePickerDocsModule {}
+export class DatePickerDocsModule {
+}
