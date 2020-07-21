@@ -3,11 +3,15 @@ sudo: required
 node_js: 10.19.0
 cache: npm
 dist: trusty
+env:
+  -SAUCE_USERNAME: 'uiappframework'
+  -SAUCE_ACCESS_KEY: 'bbb2b274-6854-456a-aa18-6a311ad10b69'
+
 addons:
     chrome: stable
     sauce_connect:
-    username: "uiappframework"
-    access_key: "bbb2b274-6854-456a-aa18-6a311ad10b69"
+    username: 'uiappframework'
+    access_key: 'bbb2b274-6854-456a-aa18-6a311ad10b69'
 
 git:
   depth: false
@@ -19,7 +23,7 @@ jobs:
     before_script: export NODE_OPTIONS='–--max_old_space_size=4096'
     script: npm run lint && npm run test && npm run test:coveralls && npm run build-pack-library
   - stage: "Pre-release"
-    if: branch = master AND type = push
+    if: branch = fix/saucelabintegrration AND type = commit
     before_script: export NODE_OPTIONS='–--max_old_space_size=4096'
     before_deploy:
     - git checkout master
