@@ -2,7 +2,7 @@
     <fdp-form-group [formGroup]="formTypesGroupRegister">
         <fdp-form-field
             #ffl1
-            label="Default Input"
+            label="Default Input Field"
             [id]="'input1'"
             name="reactiveFormInput"
             zone="“zLeft”"
@@ -13,7 +13,7 @@
         </fdp-form-field>
         <fdp-form-field
             #ffl1
-            label="Text Input"
+            label="Text Input Field"
             [id]="'input2'"
             name="reactiveFormInput"
             zone="“zLeft”"
@@ -24,7 +24,7 @@
         </fdp-form-field>
         <fdp-form-field
             #ffl1
-            label="Number Text Box"
+            label="Number Input Field"
             [id]="'input3'"
             name="reactiveFormInput"
             zone="“zLeft”"
@@ -35,7 +35,7 @@
         </fdp-form-field>
         <fdp-form-field
             #ffl1
-            label="Compact Text Box"
+            label="Compact Input Field"
             [id]="'input4'"
             name="compactTextBox"
             zone="“zLeft”"
@@ -46,7 +46,7 @@
         </fdp-form-field>
         <fdp-form-field
             #ffl1
-            label="ReadOnly Text Box"
+            label="ReadOnly Input Field"
             [id]="'input5'"
             name="readOnlyInput"
             zone="“zLeft”"
@@ -57,7 +57,7 @@
         </fdp-form-field>
         <fdp-form-field
             #ffl1
-            label="Disabled Text Box"
+            label="Disabled Input Field"
             [id]="'input6'"
             name="disabledInput"
             zone="“zLeft”"
@@ -65,6 +65,18 @@
             [placeholder]="'Field placeholder text'"
         >
             <fdp-input [name]="'input6'" [id]="'input6'" [type]="'text'" [disabled]="true"></fdp-input>
+        </fdp-form-field>
+        <fdp-form-field
+            #ffl1
+            label="Inline Help Input Field"
+            [id]="'input6'"
+            name="disabledInput"
+            zone="“zLeft”"
+            rank="1"
+            [placeholder]="'Field placeholder text'"
+            hint="Lorem ipsum dolor sit amet, consectetur adipiscing."
+        >
+            <fdp-input [name]="'input6'" [id]="'input6'" [type]="'text'"></fdp-input>
         </fdp-form-field>
     </fdp-form-group>
 </form>
