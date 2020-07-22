@@ -15,6 +15,7 @@ import { PlatformSplitMenuButtonModule } from './components/split-menu-button/sp
 import { PlatformInfoLabelModule } from './components/info-label/info-label.module';
 import { PlatformCheckboxModule } from './components/form/checkbox/checkbox.module';
 import { PlatformTextAreaModule } from './components/form/text-area/text-area.module';
+import { PlatformObjectStatusModule } from './components/object-status/object-status.module';
 
 @NgModule({
     imports: [CommonModule, FundamentalNgxCoreModule],
@@ -33,6 +34,7 @@ import { PlatformTextAreaModule } from './components/form/text-area/text-area.mo
         PlatformSplitMenuButtonModule,
         PlatformInfoLabelModule,
         PlatformTextAreaModule
-    ]
+        PlatformObjectStatusModule,
+    ],
 })
 export class FundamentalNgxPlatformModule {}

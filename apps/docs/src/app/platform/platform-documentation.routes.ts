@@ -80,13 +80,22 @@ export const ROUTES: Routes = [
             {
                 path: 'info-label',
                 loadChildren: () =>
-                    import('./component-docs/platform-info-label/platform-info-label-docs-module').then((m) => m.PlatformInfoLabelDocsModule)
+                    import('./component-docs/platform-info-label/platform-info-label-docs-module').then(
+                        (m) => m.PlatformInfoLabelDocsModule
+                    )
             },
             {
                 path: 'textarea',
                 loadChildren: () =>
                     import('./component-docs/platform-forms/platform-textarea/platform-textarea-docs.module').then(
                         (m) => m.PlatformTextareaDocsModule
+                    )
+            },
+            {
+                path: 'object-status',
+                loadChildren: () =>
+                    import('./component-docs/platform-object-status/platform-object-status-docs.module').then(
+                        (m) => m.PlatformObjectStatusDocsModule
                     )
             }
         ]
