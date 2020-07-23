@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ObjectStatus } from '@fundamental-ngx/core';
 
 export type IndicationColorType = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
@@ -44,4 +44,17 @@ export class ObjectStatusComponent {
     /** Sets control aria-label attribute value */
     @Input()
     ariaLabel: string = null;
+
+    /** Event sent when button is clicked */
+    @Output()
+    objectStatusClick: EventEmitter<MouseEvent | KeyboardEvent | TouchEvent> = new EventEmitter();
+
+    /**
+     *  Handles button click
+     */
+    public onObjectStatusClick($event: any) {
+        if (this.clickable) {
+            this.objectStatusClick.emit($event);
+        }
+    }
 }

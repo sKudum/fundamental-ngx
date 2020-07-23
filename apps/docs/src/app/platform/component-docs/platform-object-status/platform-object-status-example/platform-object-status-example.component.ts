@@ -37,6 +37,9 @@ export class PlatformObjectStatusClickableAndIconExampleComponent {
     showAlert(index) {
         alert('you clicked the clickable ObjectStatus' + index);
     }
+    showObjectStatus() {
+        alert('you clicked the clickable ObjectStatus');
+    }
 }
 
 @Component({
