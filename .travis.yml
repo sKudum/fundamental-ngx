@@ -4,8 +4,9 @@ node_js: 10.19.0
 cache: npm
 dist: trusty
 env:
-  -SAUCE_USERNAME: 'uiappframework'
-  -SAUCE_ACCESS_KEY: 'bbb2b274-6854-456a-aa18-6a311ad10b69'
+  global:
+      -SAUCE_USERNAME: 'uiappframework'
+      -SAUCE_ACCESS_KEY: 'bbb2b274-6854-456a-aa18-6a311ad10b69'
 
 addons:
     chrome: stable
