@@ -33,8 +33,8 @@ import { PlatformObjectStatusModule } from './components/object-status/object-st
         PlatformMenuButtonModule,
         PlatformSplitMenuButtonModule,
         PlatformInfoLabelModule,
-        PlatformTextAreaModule
-        PlatformObjectStatusModule,
-    ],
+        PlatformTextAreaModule,
+        PlatformObjectStatusModule
+    ]
 })
 export class FundamentalNgxPlatformModule {}
