@@ -1,3 +1,4 @@
+
 // Karma configuration file, see link for more information
 // https://karma-runner.github.io/1.0/config/configuration-file.html
 
@@ -5,11 +6,8 @@ const { join } = require('path');
 const { constants } = require('karma');
 
 module.exports = () => {
-
-    process.env.SAUCE_USERNAME = 'uiappframework';
-    process.env.SAUCE_ACCESS_KEY = 'bbb2b274-6854-456a-aa18-6a311ad10b69';
-    // Browsers to run on Sauce Labs
-    var customLaunchers = {
+    // Defining custom browser configuration for karma. Mainly using for all the custom Sauce Labs (SL_) remote flavors
+    const customLaunchers = {
         ChromeHeadlessNoSandbox: {
             base: "ChromeHeadless",
             flags: [
@@ -25,6 +23,7 @@ module.exports = () => {
             browserName: 'chrome',
             version: 'latest'
         }
+        // ,
         // 'SL_Firefox': {
         //     base: 'SauceLabs',
         //     browserName: 'firefox',
@@ -54,11 +53,12 @@ module.exports = () => {
         //     platform: 'Windows 8.1',
         //     version: '11'
         // }
-    };
+    }
 
-    if (process.env.TRAVIS) {
+    // If we're running inside Travis we will set the TRAVIS_BUILD_NUMBER and TRAVIS_BUILD_ID as the Sauce Labs build
+    // This will allow us to easily link back from Sauce Labs to Travis
+    if (process.env.TRAVIS_BUILD_NUMBER && process.env.TRAVIS_BUILD_ID) {
         sauceLabs.build = `TRAVIS #${process.env.TRAVIS_BUILD_NUMBER} (${process.env.TRAVIS_BUILD_ID})`;
-        sauceLabs.tunnelIdentifier = process.env.TRAVIS_JOB_NUMBER;
     }
 
     return {
@@ -71,18 +71,9 @@ module.exports = () => {
             require('karma-jasmine-html-reporter'),
             require('karma-coverage-istanbul-reporter'),
             require('@angular-devkit/build-angular/plugins/karma'),
-            require('karma-sauce-launcher')
-
+            require('karma-spec-reporter'),
+            require('karma-sauce-launcher'),
         ],
-        // frameworks to use
-        // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-        frameworks: ['parallel', 'jasmine', '@angular-devkit/build-angular'],
-        // list of files / patterns to load in the browser
-        // files: [
-        //     { pattern: '../src/**/*.spec.ts', included: false, watched: true }
-        // ],
-        preprocessors: { 'dist/apps/**/*.js': ['coverage'] },
-
         client: {
             clearContext: false // leave Jasmine Spec Runner output visible in browser
         },
@@ -91,38 +82,33 @@ module.exports = () => {
             reports: ['html', 'lcovonly'],
             fixWebpackSourcePaths: true
         },
-        reporters: ['progress', 'kjhtml', 'dots', 'saucelabs'],
+        reporters: ['progress', 'kjhtml', 'spec'],
         port: 9876,
         colors: true,
         logLevel: constants.LOG_INFO,
         autoWatch: true,
-        //  browsers: ['ChromeHeadlessNoSandbox'],
+        // By default we run Test only locally on the ChromeHeadlessNoSandbox customLauncher
+        browsers: ['ChromeHeadlessNoSandbox'],
         singleRun: true,
-        // customLaunchers: {
-        //     ChromeHeadlessNoSandbox: {
-        //         base: "ChromeHeadless",
-        //         flags: [
-        //             "--no-sandbox",
-        //             // required to run without privileges in Docker
-        //             "--disable-web-security",
-        //             "--disable-gpu",
-        //             "--remote-debugging-port=9222"
-        //         ]
-        //     }
-        // },
+        customLaunchers: customLaunchers,
         parallelOptions: {
             executors: 3
         },
-        sauceLabs: {
-            testName: 'Karma and Sauce Labs unit testing'
-            // sauce_connect: true,
-            // idleTimeout: 1000,
-            // commandTimeout: 600,
-            // maxDuration: 3600
-        },
-        captureTimeout: 120000,
-        customLaunchers: customLaunchers,
-        browsers: Object.keys(customLaunchers)
-    };
 
+        // We're increasing the timeouts and tolerance quite a bit to ensure that test don't time out
+        // See: https://support.saucelabs.com/hc/en-us/articles/225104707-Karma-Tests-Disconnect-Particularly-When-Running-Tests-on-Safari
+        browserDisconnectTimeout: 10000, // default 2000
+        browserDisconnectTolerance: 1, // default 0
+        browserNoActivityTimeout: 4 * 60 * 1000, //default 10000
+        captureTimeout: 4 * 60 * 1000, //default 60000
+
+        // Setting Basic Sauce Labs configuration with Sauce Connect
+        // Our central integration uses the eu-central-1 region due to higher capacity
+        sauceLabs: {
+            testName: 'Karma unit testing fundamental-ngx',
+            startConnect: true,
+            region: "eu-central-1",
+            idleTimeout: 1000
+        }
+    };
 };
