@@ -3,8 +3,16 @@ sudo: required
 node_js: 10.19.0
 cache: npm
 dist: trusty
+env:
+  global:
+      -SAUCE_USERNAME: 'sso-sap-I505386'
+      -SAUCE_ACCESS_KEY: 'b5380f8c-f030-4960-b95d-a212f744eba0'
+
 addons:
     chrome: stable
+    sauce_connect:
+    username: 'sso-sap-I505386'
+    access_key: 'b5380f8c-f030-4960-b95d-a212f744eba0'
 
 git:
   depth: false
@@ -14,7 +22,7 @@ jobs:
   include:
   - stage: "Lint and Test"
     before_script: export NODE_OPTIONS='–--max_old_space_size=4096'
-    script: npm run lint && npm run test && npm run test:coveralls && npm run build-pack-library
+    script: npm run lint && npm run test && npm run test:coveralls && npm run build-pack-library && npm run test:saucelabs
   - stage: "Pre-release"
     if: branch = master AND type = push
     before_script: export NODE_OPTIONS='–--max_old_space_size=4096'
