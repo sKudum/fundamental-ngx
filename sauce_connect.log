@@ -1,0 +1,298 @@
+2020-07-30 11:48:35.617 [10195] Sauce Connect 4.5.4, build 4699 f256a9f 
+2020-07-30 11:48:35.617 [10195] REST: Using CA certificate bundle /private/etc/ssl/cert.pem.
+2020-07-30 11:48:35.617 [10195] REST: Using CA certificate verify path /etc/ssl/certs.
+2020-07-30 11:48:35.617 [10195] TUNNEL: Using CA certificate bundle /private/etc/ssl/cert.pem.
+2020-07-30 11:48:35.617 [10195] TUNNEL: Using CA certificate verify path /etc/ssl/certs.
+2020-07-30 11:48:35.617 [10195] Trying to autodetect proxy settings
+2020-07-30 11:48:35.622 [10195] Starting up; pid 10195
+2020-07-30 11:48:35.622 [10195] Command line arguments: /Users/i505386/forked/fundamental-ngx/node_modules/karma-sauce-launcher/node_modules/saucelabs/build/.sc-v4.5.4/bin/sc --logfile=sauce_connect.log --tunnel-identifier=karma-sauce-1596089916 --user=sso-sap-I505386 --api-key=b5380f8c-f030-4960-b95d-a212f744eba0 --rest-url=https://api.us-west-1.saucelabs.com/rest/v1 
+2020-07-30 11:48:35.622 [10195] Log file: sauce_connect.log
+2020-07-30 11:48:35.622 [10195] Pid file: /tmp/sc_client-karma-sauce-1596089916.pid
+2020-07-30 11:48:35.622 [10195] Timezone: IST GMT offset: 5h
+2020-07-30 11:48:35.622 [10195] Using no proxy for connecting to Sauce Labs REST API.
+2020-07-30 11:48:35.624 [10195] Unable to serve metrics on localhost:8888, error was: listen tcp 127.0.0.1:8888: bind: address already in use
+2020-07-30 11:48:37.094 [10195] ***********************************************************
+2020-07-30 11:48:37.094 [10195] A newer version of Sauce Connect (build 5183) is available!
+2020-07-30 11:48:37.094 [10195] Download it here:
+2020-07-30 11:48:37.094 [10195] https://saucelabs.com/downloads/sc-4.6.2-osx.zip
+2020-07-30 11:48:37.094 [10195] ***********************************************************
+2020-07-30 11:48:37.094 [10195] PROXY *** scproxy started ***
+2020-07-30 11:48:37.095 [10195] PROXY found DNS server 10.17.220.85
+2020-07-30 11:48:37.095 [10195] PROXY found DNS server 10.4.12.193
+2020-07-30 11:48:37.145 [10195] Started scproxy on port 64795.
+2020-07-30 11:48:37.145 [10195] Please wait for 'you may start your tests' to start your tests.
+2020-07-30 11:48:55.840 [10195] Secure remote tunnel VM provisioned.
+2020-07-30 11:48:55.840 [10195] Tunnel ID: 151202e0cea848ea9fdb15ef4ba5ce2a
+2020-07-30 11:48:55.840 [10195] Using no proxy for connecting to tunnel VM.
+2020-07-30 11:48:55.840 [10195] Starting Selenium listener...
+2020-07-30 11:48:55.840 [10195] Establishing secure TLS connection to tunnel...
+2020-07-30 11:48:55.840 [10195] [EVDNS] Added nameserver 10.17.220.85:53 as 0x5625660
+2020-07-30 11:48:55.841 [10195] [EVDNS] Added nameserver 10.4.12.193:53 as 0x550d320
+2020-07-30 11:48:55.842 [10195] MAIN connecting to maki2507.miso.saucelabs.com - maki2507.miso.saucelabs.com:443
+2020-07-30 11:48:56.095 [10195] Selenium listener started on port 4445.
+2020-07-30 11:48:56.503 [10195] MAIN connecting to KGP server maki2507.miso.saucelabs.com took 2339 ms
+2020-07-30 11:48:58.861 [10195] PROXY resolved 'localhost' to '127.0.0.1'
+2020-07-30 11:48:58.861 [10195] PROXY 127.0.0.1:64830 (127.0.0.1) -> HEAD http://localhost:8888/debug/vars (266 bytes)
+2020-07-30 11:48:59.102 [10195] Sauce Connect is up, you may start your tests.
+2020-07-30 11:48:59.194 [10195] PROXY 127.0.0.1:64830 (127.0.0.1) -> GET http://localhost:8888/debug/vars (265 bytes)
+2020-07-30 11:49:08.816 [10195] PROXY 127.0.0.1:64855 (10.119.89.167) -> POST https://accounts.google.com/ListAccounts?gpsia=1&source=ChromiumBrowser&json=standard (700 bytes)
+2020-07-30 11:49:08.975 [10195] PROXY resolved 'accounts.google.com' to '172.217.168.205'
+2020-07-30 11:49:09.670 [10195] PROXY 127.0.0.1:64855 (10.119.89.167) <- 200 accounts.google.com:443 (1491 bytes)
+2020-07-30 11:49:10.505 [10195] PROXY 127.0.0.1:64855 (10.119.89.167) -> GET http://ipv6.msftncsi.com/ncsi.txt (310 bytes)
+2020-07-30 11:49:10.507 [10195] PROXY 127.0.0.1:64862 (10.119.89.167) -> GET http://www.msftncsi.com/ncsi.txt (308 bytes)
+2020-07-30 11:49:10.663 [10195] PROXY resolved 'www.msftncsi.com' to '23.213.161.144'
+2020-07-30 11:49:10.668 [10195] PROXY 127.0.0.1:64855 error resolving hostname: ares gave back no address
+2020-07-30 11:49:10.668 [10195] PROXY 127.0.0.1:64855 (10.119.89.167) <- ipv6.msftncsi.com:80 connection error: socket error: Resource temporarily unavailable
+2020-07-30 11:49:10.988 [10195] PROXY 127.0.0.1:64862 (10.119.89.167) <- 200 www.msftncsi.com:80 (184 bytes)
+2020-07-30 11:49:11.807 [10195] PROXY 127.0.0.1:64862 (10.119.89.167) -> GET https://www.gstatic.com/chrome/intelligence/assist/ranker/models/translate/2017/03/translate_ranker_model_20170329.pb.bin (597 bytes)
+2020-07-30 11:49:11.965 [10195] PROXY resolved 'www.gstatic.com' to '216.58.214.3'
+2020-07-30 11:49:12.521 [10195] PROXY 127.0.0.1:64873 (10.119.46.48) -> GET http://detectportal.firefox.com/success.txt (485 bytes)
+2020-07-30 11:49:12.580 [10195] PROXY 127.0.0.1:64874 (10.119.46.48) -> POST https://shavar.services.mozilla.com/downloads?client=navclient-auto-ffox&appver=79.0&pver=2.2 (1120 bytes)
+2020-07-30 11:49:12.603 [10195] PROXY 127.0.0.1:64875 (10.119.46.48) -> GET https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/records?collection=fxmonitor-breaches&bucket=main (576 bytes)
+2020-07-30 11:49:12.605 [10195] PROXY 127.0.0.1:64876 (10.119.46.48) -> GET https://location.services.mozilla.com/v1/country?key=7e40f68c-7938-4c5d-9f95-e61647c213eb (555 bytes)
+2020-07-30 11:49:12.607 [10195] PROXY 127.0.0.1:64877 (10.119.46.48) -> GET https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/records?collection=messaging-experiments&bucket=main (579 bytes)
+2020-07-30 11:49:12.634 [10195] PROXY 127.0.0.1:64862 (10.119.89.167) <- 200 www.gstatic.com:443 (2966 bytes)
+2020-07-30 11:49:12.679 [10195] PROXY resolved 'detectportal.firefox.com' to '184.24.77.19'
+2020-07-30 11:49:12.737 [10195] PROXY resolved 'shavar.services.mozilla.com' to '184.24.77.14'
+2020-07-30 11:49:12.761 [10195] PROXY resolved 'firefox.settings.services.mozilla.com' to '13.224.194.20'
+2020-07-30 11:49:12.763 [10195] PROXY resolved 'firefox.settings.services.mozilla.com' to '13.224.194.121'
+2020-07-30 11:49:12.764 [10195] PROXY resolved 'location.services.mozilla.com' to '34.253.97.22'
+2020-07-30 11:49:13.009 [10195] PROXY 127.0.0.1:64873 (10.119.46.48) <- 200 detectportal.firefox.com:80 (384 bytes)
+2020-07-30 11:49:13.389 [10195] PROXY 127.0.0.1:64874 (10.119.46.48) <- 200 shavar.services.mozilla.com:443 (2106 bytes)
+2020-07-30 11:49:13.405 [10195] PROXY 127.0.0.1:64875 (10.119.46.48) <- 200 firefox.settings.services.mozilla.com:443 (986 bytes)
+2020-07-30 11:49:13.413 [10195] PROXY 127.0.0.1:64877 (10.119.46.48) <- 200 firefox.settings.services.mozilla.com:443 (989 bytes)
+2020-07-30 11:49:13.516 [10195] PROXY 127.0.0.1:64876 (10.119.46.48) <- 200 location.services.mozilla.com:443 (532 bytes)
+2020-07-30 11:49:13.556 [10195] PROXY resolved 'detectportal.firefox.com' to '184.24.77.19'
+2020-07-30 11:49:13.557 [10195] PROXY 127.0.0.1:64862 (10.119.46.48) -> GET http://detectportal.firefox.com/success.txt?ipv4 (490 bytes)
+2020-07-30 11:49:13.558 [10195] PROXY resolved 'detectportal.firefox.com' to '184.24.77.19'
+2020-07-30 11:49:13.559 [10195] PROXY 127.0.0.1:64891 (10.119.46.48) -> GET http://detectportal.firefox.com/success.txt?ipv6 (490 bytes)
+2020-07-30 11:49:13.711 [10195] PROXY resolved 'localhost' to '127.0.0.1'
+2020-07-30 11:49:13.711 [10195] PROXY 127.0.0.1:64894 (10.119.89.167) -> GET http://localhost:9877/?id=66153976 (749 bytes)
+2020-07-30 11:49:13.712 [10195] PROXY resolved 'firefox.settings.services.mozilla.com' to '13.224.194.121'
+2020-07-30 11:49:13.713 [10195] PROXY 127.0.0.1:64895 (10.119.46.48) -> GET https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/records?collection=message-groups&bucket=main (572 bytes)
+2020-07-30 11:49:13.715 [10195] PROXY 127.0.0.1:64894 (10.119.89.167) <- 200 localhost:9877 (2903 bytes)
+2020-07-30 11:49:13.786 [10195] PROXY 127.0.0.1:64877 (10.119.46.48) -> GET https://tracking-protection.cdn.mozilla.net/ads-track-digest256/1595893235 (531 bytes)
+2020-07-30 11:49:13.881 [10195] PROXY 127.0.0.1:64862 (10.119.46.48) <- 200 detectportal.firefox.com:80 (384 bytes)
+2020-07-30 11:49:13.885 [10195] PROXY 127.0.0.1:64891 (10.119.46.48) <- 200 detectportal.firefox.com:80 (384 bytes)
+2020-07-30 11:49:13.911 [10195] PROXY resolved 'localhost' to '127.0.0.1'
+2020-07-30 11:49:13.912 [10195] PROXY 127.0.0.1:64876 (10.119.23.229) -> GET http://localhost:9877/?id=94920 (474 bytes)
+2020-07-30 11:49:13.913 [10195] PROXY 127.0.0.1:64876 (10.119.23.229) <- 200 localhost:9877 (2903 bytes)
+2020-07-30 11:49:13.932 [10195] PROXY 127.0.0.1:64875 (10.119.46.48) -> GET https://firefox.settings.services.mozilla.com/v1/buckets/main/collections/fxmonitor-breaches/changeset?_expected=1595956649786 (613 bytes)
+2020-07-30 11:49:13.936 [10195] PROXY resolved 'firefox.settings.services.mozilla.com' to '13.224.194.121'
+2020-07-30 11:49:13.937 [10195] PROXY 127.0.0.1:64874 (10.119.46.48) -> GET https://firefox.settings.services.mozilla.com/v1/buckets/main/collections/messaging-experiments/changeset?_expected=1595952946159 (616 bytes)
+2020-07-30 11:49:13.943 [10195] PROXY resolved 'tracking-protection.cdn.mozilla.net' to '13.224.194.98'
+2020-07-30 11:49:14.181 [10195] PROXY 127.0.0.1:64894 (10.119.89.167) -> GET http://localhost:9877/karma.js (625 bytes)
+2020-07-30 11:49:14.183 [10195] PROXY resolved 'localhost' to '127.0.0.1'
+2020-07-30 11:49:14.183 [10195] PROXY 127.0.0.1:64902 (10.119.89.167) -> GET http://localhost:9877/socket.io/socket.io.js (639 bytes)
+2020-07-30 11:49:14.185 [10195] PROXY 127.0.0.1:64894 (10.119.89.167) <- 200 localhost:9877 (74469 bytes)
+2020-07-30 11:49:14.186 [10195] PROXY 127.0.0.1:64902 (10.119.89.167) <- 200 localhost:9877 (68895 bytes)
+2020-07-30 11:49:14.257 [10195] PROXY 127.0.0.1:64876 (10.119.23.229) -> GET http://localhost:9877/socket.io/socket.io.js (516 bytes)
+2020-07-30 11:49:14.259 [10195] PROXY 127.0.0.1:64876 (10.119.23.229) <- 200 localhost:9877 (68895 bytes)
+2020-07-30 11:49:14.298 [10195] PROXY resolved 'localhost' to '127.0.0.1'
+2020-07-30 11:49:14.299 [10195] PROXY 127.0.0.1:64891 (10.119.23.229) -> GET http://localhost:9877/karma.js (502 bytes)
+2020-07-30 11:49:14.300 [10195] PROXY 127.0.0.1:64891 (10.119.23.229) <- 200 localhost:9877 (74469 bytes)
+2020-07-30 11:49:14.357 [10195] PROXY 127.0.0.1:64895 (10.119.46.48) <- 200 firefox.settings.services.mozilla.com:443 (982 bytes)
+2020-07-30 11:49:14.476 [10195] PROXY 127.0.0.1:64875 (10.119.46.48) <- 200 firefox.settings.services.mozilla.com:443 (140436 bytes)
+2020-07-30 11:49:14.656 [10195] PROXY 127.0.0.1:64874 (10.119.46.48) <- 200 firefox.settings.services.mozilla.com:443 (28373 bytes)
+2020-07-30 11:49:14.813 [10195] PROXY 127.0.0.1:64877 (10.119.46.48) <- 200 tracking-protection.cdn.mozilla.net:443 (55028 bytes)
+2020-07-30 11:49:16.270 [10195] PROXY resolved 'localhost' to '127.0.0.1'
+2020-07-30 11:49:16.272 [10195] PROXY 127.0.0.1:64909 (10.119.46.48) -> GET http://localhost:9877/?id=25655370 (569 bytes)
+2020-07-30 11:49:16.273 [10195] PROXY 127.0.0.1:64909 (10.119.46.48) <- 200 localhost:9877 (2903 bytes)
+2020-07-30 11:49:16.595 [10195] PROXY 127.0.0.1:64894 (10.119.23.229) -> GET https://www.bing.com/favicon.ico (426 bytes)
+2020-07-30 11:49:16.756 [10195] PROXY resolved 'www.bing.com' to '13.107.21.200'
+2020-07-30 11:49:16.806 [10195] PROXY 127.0.0.1:64902 (10.119.89.167) -> GET http://localhost:9877/favicon.ico (663 bytes)
+2020-07-30 11:49:16.808 [10195] PROXY resolved 'localhost' to '127.0.0.1'
+2020-07-30 11:49:16.808 [10195] PROXY 127.0.0.1:64913 (10.119.89.167) -> GET http://localhost:9877/socket.io/?EIO=3&transport=polling&t=NEUN_Se (655 bytes)
+2020-07-30 11:49:16.809 [10195] PROXY 127.0.0.1:64902 (10.119.89.167) <- 200 localhost:9877 (5591 bytes)
+2020-07-30 11:49:16.812 [10195] PROXY 127.0.0.1:64913 (10.119.89.167) <- 200 localhost:9877 (349 bytes)
+2020-07-30 11:49:17.403 [10195] PROXY 127.0.0.1:64891 (10.119.23.229) -> GET http://localhost:9877/socket.io/?EIO=3&transport=polling&t=NEUN_kd (506 bytes)
+2020-07-30 11:49:17.405 [10195] PROXY 127.0.0.1:64891 (10.119.23.229) <- 200 localhost:9877 (370 bytes)
+2020-07-30 11:49:17.423 [10195] PROXY 127.0.0.1:64895 (10.119.46.48) -> GET https://firefox.settings.services.mozilla.com/v1/buckets/main/collections/message-groups/changeset?_expected=1595616291726 (609 bytes)
+2020-07-30 11:49:17.427 [10195] PROXY 127.0.0.1:64894 (10.119.23.229) <- 200 www.bing.com:443 (566 bytes)
+2020-07-30 11:49:17.464 [10195] PROXY 127.0.0.1:64876 (10.119.23.229) -> GET http://localhost:9877/favicon.ico (409 bytes)
+2020-07-30 11:49:17.465 [10195] PROXY 127.0.0.1:64876 (10.119.23.229) <- 200 localhost:9877 (8989 bytes)
+2020-07-30 11:49:17.586 [10195] PROXY 127.0.0.1:64895 (10.119.46.48) <- 200 firefox.settings.services.mozilla.com:443 (1802 bytes)
+2020-07-30 11:49:17.751 [10195] PROXY resolved 'localhost' to '127.0.0.1'
+2020-07-30 11:49:17.751 [10195] PROXY 127.0.0.1:64917 (10.119.23.229) -> POST http://localhost:9877/socket.io/?EIO=3&transport=polling&t=NEUN_q1&sid=mWnhRPPY7SBVQcVVAAAB (862 bytes)
+2020-07-30 11:49:17.754 [10195] PROXY 127.0.0.1:64917 (10.119.23.229) <- 200 localhost:9877 (251 bytes)
+2020-07-30 11:49:17.759 [10195] PROXY resolved 'localhost' to '127.0.0.1'
+2020-07-30 11:49:17.759 [10195] PROXY 127.0.0.1:64894 (10.119.23.229) -> GET http://localhost:9877/socket.io/?EIO=3&transport=polling&t=NEUN_q3&sid=mWnhRPPY7SBVQcVVAAAB (564 bytes)
+2020-07-30 11:49:17.761 [10195] PROXY resolved 'localhost' to '127.0.0.1'
+2020-07-30 11:49:17.761 [10195] PROXY 127.0.0.1:64919 (10.119.89.167) -> POST http://localhost:9877/socket.io/?EIO=3&transport=polling&t=NEUN_hh&sid=6DF1CvKqGY2zBJYFAAAA (968 bytes)
+2020-07-30 11:49:17.763 [10195] PROXY 127.0.0.1:64894 (10.119.23.229) <- 200 localhost:9877 (472 bytes)
+2020-07-30 11:49:17.764 [10195] PROXY 127.0.0.1:64919 (10.119.89.167) <- 200 localhost:9877 (290 bytes)
+2020-07-30 11:49:17.786 [10195] PROXY 127.0.0.1:64902 (10.119.89.167) -> GET http://localhost:9877/socket.io/?EIO=3&transport=polling&t=NEUN_hl&sid=6DF1CvKqGY2zBJYFAAAA (713 bytes)
+2020-07-30 11:49:17.788 [10195] PROXY 127.0.0.1:64909 (10.119.23.229) -> GET https://go.microsoft.com/fwlink/?LinkId=251136 (466 bytes)
+2020-07-30 11:49:17.790 [10195] PROXY 127.0.0.1:64902 (10.119.89.167) <- 200 localhost:9877 (611 bytes)
+2020-07-30 11:49:17.837 [10195] PROXY resolved 'tracking-protection.cdn.mozilla.net' to '13.224.194.98'
+2020-07-30 11:49:17.838 [10195] PROXY 127.0.0.1:64876 (10.119.46.48) -> GET https://tracking-protection.cdn.mozilla.net/social-track-digest256/1594235398 (534 bytes)
+2020-07-30 11:49:17.947 [10195] PROXY resolved 'go.microsoft.com' to '104.74.143.169'
+2020-07-30 11:49:18.057 [10195] PROXY resolved 'localhost' to '127.0.0.1'
+2020-07-30 11:49:18.058 [10195] PROXY 127.0.0.1:64895 (10.119.89.167) -> GET http://localhost:9877/socket.io/?EIO=3&transport=websocket&sid=6DF1CvKqGY2zBJYFAAAA (763 bytes)
+2020-07-30 11:49:18.060 [10195] PROXY 127.0.0.1:64895 (10.119.89.167) <- 400 localhost:9877 (286 bytes)
+2020-07-30 11:49:18.071 [10195] PROXY resolved 'localhost' to '127.0.0.1'
+2020-07-30 11:49:18.072 [10195] PROXY 127.0.0.1:64877 (10.119.46.48) -> GET http://localhost:9877/socket.io/socket.io.js (525 bytes)
+2020-07-30 11:49:18.073 [10195] PROXY resolved 'localhost' to '127.0.0.1'
+2020-07-30 11:49:18.073 [10195] PROXY 127.0.0.1:64874 (10.119.46.48) -> GET http://localhost:9877/karma.js (511 bytes)
+2020-07-30 11:49:18.075 [10195] PROXY 127.0.0.1:64877 (10.119.46.48) <- 200 localhost:9877 (68895 bytes)
+2020-07-30 11:49:18.076 [10195] PROXY 127.0.0.1:64874 (10.119.46.48) <- 200 localhost:9877 (74469 bytes)
+2020-07-30 11:49:18.100 [10195] PROXY 127.0.0.1:64919 (10.119.23.229) -> GET http://localhost:9877/context.html (554 bytes)
+2020-07-30 11:49:18.102 [10195] PROXY 127.0.0.1:64919 (10.119.23.229) <- 200 localhost:9877 (2721 bytes)
+2020-07-30 11:49:18.111 [10195] PROXY 127.0.0.1:64894 (10.119.23.229) -> GET http://localhost:9877/socket.io/?EIO=3&transport=polling&t=NEUN_vY&sid=mWnhRPPY7SBVQcVVAAAB (564 bytes)
+2020-07-30 11:49:18.113 [10195] PROXY 127.0.0.1:64894 (10.119.23.229) <- 200 localhost:9877 (427 bytes)
+2020-07-30 11:49:18.149 [10195] PROXY 127.0.0.1:64902 (10.119.46.48) -> GET https://content-signature-2.cdn.mozilla.net/chains/remote-settings.content-signature.mozilla.org-2020-09-04-17-16-15.chain (562 bytes)
+2020-07-30 11:49:18.151 [10195] PROXY 127.0.0.1:64917 (10.119.46.48) -> GET https://content-signature-2.cdn.mozilla.net/chains/remote-settings.content-signature.mozilla.org-2020-09-04-17-16-15.chain (562 bytes)
+2020-07-30 11:49:18.153 [10195] PROXY 127.0.0.1:64875 (10.119.46.48) -> GET https://content-signature-2.cdn.mozilla.net/chains/remote-settings.content-signature.mozilla.org-2020-09-04-17-16-15.chain (562 bytes)
+2020-07-30 11:49:18.169 [10195] PROXY resolved 'localhost' to '127.0.0.1'
+2020-07-30 11:49:18.169 [10195] PROXY 127.0.0.1:64927 (10.119.89.167) -> GET http://localhost:9877/socket.io/?EIO=3&transport=polling&t=NEUN_nk&sid=6DF1CvKqGY2zBJYFAAAA (713 bytes)
+2020-07-30 11:49:18.305 [10195] PROXY resolved 'content-signature-2.cdn.mozilla.net' to '13.225.78.78'
+2020-07-30 11:49:18.309 [10195] PROXY resolved 'content-signature-2.cdn.mozilla.net' to '13.225.78.8'
+2020-07-30 11:49:18.310 [10195] PROXY resolved 'content-signature-2.cdn.mozilla.net' to '13.225.78.8'
+2020-07-30 11:49:18.311 [10195] PROXY resolved 'localhost' to '127.0.0.1'
+2020-07-30 11:49:18.311 [10195] PROXY 127.0.0.1:64928 (10.119.89.167) -> GET http://localhost:9877/context.html (814 bytes)
+2020-07-30 11:49:18.312 [10195] PROXY 127.0.0.1:64928 (10.119.89.167) <- 200 localhost:9877 (2721 bytes)
+2020-07-30 11:49:18.431 [10195] PROXY 127.0.0.1:64919 (10.119.23.229) -> GET http://localhost:9877/context.js (540 bytes)
+2020-07-30 11:49:18.432 [10195] PROXY 127.0.0.1:64874 (10.119.23.229) -> GET http://localhost:9877/absolute/Users/i505386/forked/fundamental-ngx/node_modules/jasmine-core/lib/jasmine-core/jasmine.js?8f66117bbfbdf7b03a8f43bc667e3a4421ce15de (699 bytes)
+2020-07-30 11:49:18.434 [10195] PROXY 127.0.0.1:64877 (10.119.23.229) -> GET http://localhost:9877/absolute/Users/i505386/forked/fundamental-ngx/node_modules/karma-jasmine/lib/boot.js?760d54bbca4f739f1f8b252c1636d76201cc4e88 (684 bytes)
+2020-07-30 11:49:18.435 [10195] PROXY 127.0.0.1:64895 (10.119.23.229) -> GET http://localhost:9877/absolute/Users/i505386/forked/fundamental-ngx/node_modules/karma-jasmine/lib/adapter.js?e14e485cb2a825ba86577e6749e91dda740e6c04 (687 bytes)
+2020-07-30 11:49:18.437 [10195] PROXY 127.0.0.1:64877 (10.119.23.229) <- 200 localhost:9877 (1606 bytes)
+2020-07-30 11:49:18.438 [10195] PROXY 127.0.0.1:64919 (10.119.23.229) <- 200 localhost:9877 (67687 bytes)
+2020-07-30 11:49:18.439 [10195] PROXY 127.0.0.1:64895 (10.119.23.229) <- 200 localhost:9877 (15659 bytes)
+2020-07-30 11:49:18.440 [10195] PROXY 127.0.0.1:64874 (10.119.23.229) <- 200 localhost:9877 (256443 bytes)
+2020-07-30 11:49:18.489 [10195] PROXY 127.0.0.1:64876 (10.119.46.48) <- 200 tracking-protection.cdn.mozilla.net:443 (2578 bytes)
+2020-07-30 11:49:18.490 [10195] PROXY 127.0.0.1:64894 (10.119.23.229) -> GET http://localhost:9877/socket.io/?EIO=3&transport=polling&t=NEUN_-v&sid=mWnhRPPY7SBVQcVVAAAB (564 bytes)
+2020-07-30 11:49:18.505 [10195] PROXY resolved 'localhost' to '127.0.0.1'
+2020-07-30 11:49:18.506 [10195] PROXY 127.0.0.1:64935 (10.119.46.48) -> GET http://localhost:9877/socket.io/?EIO=3&transport=polling&t=NEUN_gd (545 bytes)
+2020-07-30 11:49:18.507 [10195] PROXY 127.0.0.1:64935 (10.119.46.48) <- 200 localhost:9877 (349 bytes)
+2020-07-30 11:49:18.598 [10195] PROXY resolved 'localhost' to '127.0.0.1'
+2020-07-30 11:49:18.599 [10195] PROXY 127.0.0.1:64937 (10.119.46.48) -> GET http://localhost:9877/favicon.ico (480 bytes)
+2020-07-30 11:49:18.601 [10195] PROXY 127.0.0.1:64937 (10.119.46.48) <- 200 localhost:9877 (8989 bytes)
+2020-07-30 11:49:18.683 [10195] PROXY 127.0.0.1:64928 (10.119.89.167) -> GET http://localhost:9877/context.js (660 bytes)
+2020-07-30 11:49:18.685 [10195] PROXY resolved 'localhost' to '127.0.0.1'
+2020-07-30 11:49:18.685 [10195] PROXY 127.0.0.1:64939 (10.119.89.167) -> GET http://localhost:9877/absolute/Users/i505386/forked/fundamental-ngx/node_modules/jasmine-core/lib/jasmine-core/jasmine.js?8f66117bbfbdf7b03a8f43bc667e3a4421ce15de (816 bytes)
+2020-07-30 11:49:18.687 [10195] PROXY 127.0.0.1:64928 (10.119.89.167) <- 200 localhost:9877 (67687 bytes)
+2020-07-30 11:49:18.688 [10195] PROXY 127.0.0.1:64939 (10.119.89.167) <- 200 localhost:9877 (256443 bytes)
+2020-07-30 11:49:18.788 [10195] PROXY 127.0.0.1:64909 (10.119.23.229) <- 302 go.microsoft.com:443 (499 bytes)
+2020-07-30 11:49:18.985 [10195] PROXY 127.0.0.1:64875 (10.119.46.48) <- 200 content-signature-2.cdn.mozilla.net:443 (5849 bytes)
+2020-07-30 11:49:18.987 [10195] PROXY 127.0.0.1:64917 (10.119.46.48) <- 200 content-signature-2.cdn.mozilla.net:443 (5849 bytes)
+2020-07-30 11:49:18.988 [10195] PROXY 127.0.0.1:64902 (10.119.46.48) <- 200 content-signature-2.cdn.mozilla.net:443 (5849 bytes)
+2020-07-30 11:49:18.989 [10195] PROXY 127.0.0.1:64919 (10.119.89.167) -> GET http://localhost:9877/absolute/Users/i505386/forked/fundamental-ngx/node_modules/karma-jasmine/lib/boot.js?760d54bbca4f739f1f8b252c1636d76201cc4e88 (801 bytes)
+2020-07-30 11:49:18.990 [10195] PROXY 127.0.0.1:64895 (10.119.89.167) -> GET http://localhost:9877/absolute/Users/i505386/forked/fundamental-ngx/node_modules/karma-jasmine/lib/adapter.js?e14e485cb2a825ba86577e6749e91dda740e6c04 (804 bytes)
+2020-07-30 11:49:18.991 [10195] PROXY 127.0.0.1:64919 (10.119.89.167) <- 200 localhost:9877 (1606 bytes)
+2020-07-30 11:49:18.992 [10195] PROXY 127.0.0.1:64895 (10.119.89.167) <- 200 localhost:9877 (15659 bytes)
+2020-07-30 11:49:19.111 [10195] PROXY resolved 'tracking-protection.cdn.mozilla.net' to '13.224.194.98'
+2020-07-30 11:49:19.111 [10195] PROXY 127.0.0.1:64937 (10.119.46.48) -> GET https://tracking-protection.cdn.mozilla.net/analytics-track-digest256/1595889526 (537 bytes)
+2020-07-30 11:49:19.136 [10195] PROXY resolved 'localhost' to '127.0.0.1'
+2020-07-30 11:49:19.142 [10195] PROXY 127.0.0.1:64943 (10.119.23.229) -> POST http://localhost:9877/socket.io/?EIO=3&transport=polling&t=NEUO09W&sid=mWnhRPPY7SBVQcVVAAAB (705 bytes)
+2020-07-30 11:49:19.143 [10195] PROXY 127.0.0.1:64943 (10.119.23.229) <- 200 localhost:9877 (251 bytes)
+2020-07-30 11:49:19.170 [10195] PROXY resolved 'localhost' to '127.0.0.1'
+2020-07-30 11:49:19.171 [10195] PROXY 127.0.0.1:64876 (10.119.46.48) -> GET http://localhost:9877/socket.io/?EIO=3&transport=websocket&sid=tYVvUfNTSJT4sYniAAAC (716 bytes)
+2020-07-30 11:49:19.172 [10195] PROXY resolved 'localhost' to '127.0.0.1'
+2020-07-30 11:49:19.172 [10195] PROXY 127.0.0.1:64945 (10.119.46.48) -> POST http://localhost:9877/socket.io/?EIO=3&transport=polling&t=NEUN_qu&sid=tYVvUfNTSJT4sYniAAAC (827 bytes)
+2020-07-30 11:49:19.174 [10195] PROXY 127.0.0.1:64876 (10.119.46.48) <- 400 localhost:9877 (286 bytes)
+2020-07-30 11:49:19.174 [10195] PROXY 127.0.0.1:64945 (10.119.46.48) <- 200 localhost:9877 (290 bytes)
+2020-07-30 11:49:19.176 [10195] PROXY 127.0.0.1:64927 (10.119.89.167) <- 200 localhost:9877 (479 bytes)
+2020-07-30 11:49:19.176 [10195] PROXY 127.0.0.1:64894 (10.119.23.229) <- 200 localhost:9877 (500 bytes)
+2020-07-30 11:49:19.308 [10195] PROXY 127.0.0.1:64874 (10.119.46.48) -> GET http://localhost:9877/socket.io/?EIO=3&transport=polling&t=NEUN_qv&sid=tYVvUfNTSJT4sYniAAAC (603 bytes)
+2020-07-30 11:49:19.309 [10195] PROXY 127.0.0.1:64874 (10.119.46.48) <- 200 localhost:9877 (605 bytes)
+2020-07-30 11:49:19.443 [10195] PROXY 127.0.0.1:64895 (10.119.23.229) -> GET https://ieonline.microsoft.com/ie/known_providers_download_v1.xml (491 bytes)
+2020-07-30 11:49:19.492 [10195] PROXY resolved 'localhost' to '127.0.0.1'
+2020-07-30 11:49:19.493 [10195] PROXY 127.0.0.1:64949 (10.119.23.229) -> POST http://localhost:9877/socket.io/?EIO=3&transport=polling&t=NEUO0Ep&sid=mWnhRPPY7SBVQcVVAAAB (702 bytes)
+2020-07-30 11:49:19.494 [10195] PROXY 127.0.0.1:64949 (10.119.23.229) <- 200 localhost:9877 (251 bytes)
+2020-07-30 11:49:19.506 [10195] PROXY 127.0.0.1:64894 (10.119.23.229) -> GET http://localhost:9877/socket.io/?EIO=3&transport=polling&t=NEUO0FM&sid=mWnhRPPY7SBVQcVVAAAB (564 bytes)
+2020-07-30 11:49:19.509 [10195] PROXY 127.0.0.1:64894 (10.119.23.229) <- 200 localhost:9877 (507 bytes)
+2020-07-30 11:49:19.548 [10195] PROXY resolved 'firefox.settings.services.mozilla.com' to '13.224.194.121'
+2020-07-30 11:49:19.549 [10195] PROXY 127.0.0.1:64945 (10.119.46.48) -> GET https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/records?collection=cfr-fxa&bucket=main (565 bytes)
+2020-07-30 11:49:19.551 [10195] PROXY resolved 'localhost' to '127.0.0.1'
+2020-07-30 11:49:19.551 [10195] PROXY 127.0.0.1:64952 (10.119.89.167) -> POST http://localhost:9877/socket.io/?EIO=3&transport=polling&t=NEUO074&sid=6DF1CvKqGY2zBJYFAAAA (848 bytes)
+2020-07-30 11:49:19.553 [10195] PROXY 127.0.0.1:64952 (10.119.89.167) <- 200 localhost:9877 (290 bytes)
+2020-07-30 11:49:19.589 [10195] PROXY 127.0.0.1:64876 (10.119.89.167) -> GET http://localhost:9877/socket.io/?EIO=3&transport=polling&t=NEUO07w&sid=6DF1CvKqGY2zBJYFAAAA (713 bytes)
+2020-07-30 11:49:19.591 [10195] PROXY 127.0.0.1:64876 (10.119.89.167) <- 200 localhost:9877 (479 bytes)
+2020-07-30 11:49:19.598 [10195] PROXY resolved 'ieonline.microsoft.com' to '204.79.197.200'
+2020-07-30 11:49:19.703 [10195] PROXY 127.0.0.1:64874 (10.119.46.48) -> GET http://localhost:9877/socket.io/?EIO=3&transport=polling&t=NEUN_z2&sid=tYVvUfNTSJT4sYniAAAC (603 bytes)
+2020-07-30 11:49:19.704 [10195] PROXY 127.0.0.1:64943 (10.119.46.48) -> GET http://localhost:9877/context.html (649 bytes)
+2020-07-30 11:49:19.705 [10195] PROXY 127.0.0.1:64874 (10.119.46.48) <- 200 localhost:9877 (479 bytes)
+2020-07-30 11:49:19.706 [10195] PROXY 127.0.0.1:64943 (10.119.46.48) <- 200 localhost:9877 (2721 bytes)
+2020-07-30 11:49:19.761 [10195] PROXY 127.0.0.1:64937 (10.119.46.48) <- 200 tracking-protection.cdn.mozilla.net:443 (10322 bytes)
+2020-07-30 11:49:19.845 [10195] PROXY 127.0.0.1:64894 (10.119.23.229) -> GET http://localhost:9877/socket.io/?EIO=3&transport=polling&t=NEUO0Kd&sid=mWnhRPPY7SBVQcVVAAAB (564 bytes)
+2020-07-30 11:49:19.919 [10195] PROXY resolved 'localhost' to '127.0.0.1'
+2020-07-30 11:49:19.920 [10195] PROXY 127.0.0.1:64956 (10.119.89.167) -> POST http://localhost:9877/socket.io/?EIO=3&transport=polling&t=NEUO0DC&sid=6DF1CvKqGY2zBJYFAAAA (845 bytes)
+2020-07-30 11:49:19.921 [10195] PROXY 127.0.0.1:64956 (10.119.89.167) <- 200 localhost:9877 (290 bytes)
+2020-07-30 11:49:19.922 [10195] PROXY 127.0.0.1:64894 (10.119.23.229) <- 200 localhost:9877 (500 bytes)
+2020-07-30 11:49:19.958 [10195] PROXY 127.0.0.1:64876 (10.119.89.167) -> GET http://localhost:9877/socket.io/?EIO=3&transport=polling&t=NEUO0Dt&sid=6DF1CvKqGY2zBJYFAAAA (713 bytes)
+2020-07-30 11:49:19.959 [10195] PROXY 127.0.0.1:64876 (10.119.89.167) <- 200 localhost:9877 (486 bytes)
+2020-07-30 11:49:20.091 [10195] PROXY 127.0.0.1:64937 (10.119.46.48) -> GET https://tracking-protection.cdn.mozilla.net/content-track-digest256/1594235398 (535 bytes)
+2020-07-30 11:49:20.122 [10195] PROXY 127.0.0.1:64943 (10.119.46.48) -> GET http://localhost:9877/absolute/Users/i505386/forked/fundamental-ngx/node_modules/karma-jasmine/lib/boot.js?760d54bbca4f739f1f8b252c1636d76201cc4e88 (659 bytes)
+2020-07-30 11:49:20.124 [10195] PROXY 127.0.0.1:64874 (10.119.46.48) -> GET http://localhost:9877/absolute/Users/i505386/forked/fundamental-ngx/node_modules/jasmine-core/lib/jasmine-core/jasmine.js?8f66117bbfbdf7b03a8f43bc667e3a4421ce15de (674 bytes)
+2020-07-30 11:49:20.126 [10195] PROXY 127.0.0.1:64949 (10.119.46.48) -> GET http://localhost:9877/context.js (546 bytes)
+2020-07-30 11:49:20.127 [10195] PROXY 127.0.0.1:64943 (10.119.46.48) <- 200 localhost:9877 (1606 bytes)
+2020-07-30 11:49:20.128 [10195] PROXY 127.0.0.1:64949 (10.119.46.48) <- 200 localhost:9877 (67687 bytes)
+2020-07-30 11:49:20.129 [10195] PROXY 127.0.0.1:64874 (10.119.46.48) <- 200 localhost:9877 (256443 bytes)
+2020-07-30 11:49:20.166 [10195] PROXY 127.0.0.1:64939 (10.119.46.48) -> GET http://localhost:9877/socket.io/?EIO=3&transport=polling&t=NEUO036&sid=tYVvUfNTSJT4sYniAAAC (603 bytes)
+2020-07-30 11:49:20.168 [10195] PROXY 127.0.0.1:64919 (10.119.46.48) -> GET http://localhost:9877/absolute/Users/i505386/forked/fundamental-ngx/node_modules/karma-jasmine/lib/adapter.js?e14e485cb2a825ba86577e6749e91dda740e6c04 (662 bytes)
+2020-07-30 11:49:20.169 [10195] PROXY 127.0.0.1:64939 (10.119.46.48) <- 200 localhost:9877 (479 bytes)
+2020-07-30 11:49:20.170 [10195] PROXY 127.0.0.1:64919 (10.119.46.48) <- 200 localhost:9877 (15659 bytes)
+2020-07-30 11:49:20.202 [10195] PROXY 127.0.0.1:64945 (10.119.46.48) <- 200 firefox.settings.services.mozilla.com:443 (976 bytes)
+2020-07-30 11:49:20.253 [10195] PROXY 127.0.0.1:64894 (10.119.23.229) -> GET http://localhost:9877/socket.io/?EIO=3&transport=polling&t=NEUO0R1&sid=mWnhRPPY7SBVQcVVAAAB (564 bytes)
+2020-07-30 11:49:20.312 [10195] PROXY 127.0.0.1:64876 (10.119.89.167) -> GET http://localhost:9877/socket.io/?EIO=3&transport=polling&t=NEUO0JX&sid=6DF1CvKqGY2zBJYFAAAA (713 bytes)
+2020-07-30 11:49:20.313 [10195] PROXY 127.0.0.1:64937 (10.119.46.48) <- 200 tracking-protection.cdn.mozilla.net:443 (15988 bytes)
+2020-07-30 11:49:20.544 [10195] PROXY 127.0.0.1:64945 (10.119.46.48) -> GET https://firefox.settings.services.mozilla.com/v1/buckets/main/collections/cfr-fxa/changeset?_expected=1585237415718 (602 bytes)
+2020-07-30 11:49:20.600 [10195] PROXY 127.0.0.1:64895 (10.119.23.229) <- 200 ieonline.microsoft.com:443 (90883 bytes)
+2020-07-30 11:49:20.604 [10195] PROXY 127.0.0.1:64939 (10.119.46.48) -> GET http://localhost:9877/socket.io/?EIO=3&transport=polling&t=NEUO0An&sid=tYVvUfNTSJT4sYniAAAC (603 bytes)
+2020-07-30 11:49:20.606 [10195] PROXY resolved 'localhost' to '127.0.0.1'
+2020-07-30 11:49:20.606 [10195] PROXY 127.0.0.1:64960 (10.119.46.48) -> POST http://localhost:9877/socket.io/?EIO=3&transport=polling&t=NEUO0BP&sid=tYVvUfNTSJT4sYniAAAC (738 bytes)
+2020-07-30 11:49:20.608 [10195] PROXY 127.0.0.1:64960 (10.119.46.48) <- 200 localhost:9877 (290 bytes)
+2020-07-30 11:49:20.685 [10195] PROXY 127.0.0.1:64937 (10.119.46.48) -> GET https://tracking-protection.cdn.mozilla.net/mozstd-trackwhite-digest256/1595893235 (539 bytes)
+2020-07-30 11:49:20.705 [10195] PROXY 127.0.0.1:64945 (10.119.46.48) <- 200 firefox.settings.services.mozilla.com:443 (2144 bytes)
+2020-07-30 11:49:20.953 [10195] PROXY resolved 'localhost' to '127.0.0.1'
+2020-07-30 11:49:20.954 [10195] PROXY 127.0.0.1:64963 (10.119.46.48) -> POST http://localhost:9877/socket.io/?EIO=3&transport=polling&t=NEUO0HC&sid=tYVvUfNTSJT4sYniAAAC (735 bytes)
+2020-07-30 11:49:20.955 [10195] PROXY 127.0.0.1:64963 (10.119.46.48) <- 200 localhost:9877 (290 bytes)
+2020-07-30 11:49:20.956 [10195] PROXY 127.0.0.1:64939 (10.119.46.48) <- 200 localhost:9877 (251 bytes)
+2020-07-30 11:49:20.957 [10195] PROXY 127.0.0.1:64876 (10.119.89.167) <- 200 localhost:9877 (479 bytes)
+2020-07-30 11:49:20.957 [10195] PROXY 127.0.0.1:64894 (10.119.23.229) <- 200 localhost:9877 (500 bytes)
+2020-07-30 11:49:20.958 [10195] Got signal interrupt
+2020-07-30 11:49:21.069 [10195] PROXY 127.0.0.1:64945 (10.119.46.48) -> GET https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/records?collection=cfr&bucket=main (561 bytes)
+2020-07-30 11:49:21.165 [10195] Cleaning up.
+2020-07-30 11:49:21.165 [10195] Removing tunnel 151202e0cea848ea9fdb15ef4ba5ce2a.
+2020-07-30 11:49:21.165 [10195] Waiting for any active jobs using this tunnel to finish.
+2020-07-30 11:49:21.165 [10195] Press CTRL-C again to shut down immediately.
+2020-07-30 11:49:21.165 [10195] Note: if you do this, tests that are still running will fail.
+2020-07-30 11:49:21.191 [10195] PROXY 127.0.0.1:64895 (10.119.46.48) -> GET https://arc.msn.com/v3/Delivery/Placement?pubid=da63df93-3dbc-42ae-a505-b34988683ac7&pid=280815&adm=2&w=1&h=1&wpx=1&hpx=1&fmt=json&cltp=app&dim=le&rafb=0&nct=1&pm=1&cfmt=text,image,poly&sft=jpeg,png,gif&topt=0&auid=060b9a0848a34c176839c18955d6df97&poptin=1&localid=w:F154A057-70CD-47CC-6CF6-A27ED92721A2&ctry=US&time=20200730T061919Z&lc=en-US&pl=en-US&idtp=mid&uid=f4ba3115-d80d-40f1-af82-2242713a5b60&aid=00000000-0000-0000-0000-000000000000&ua=WindowsShellClient%2F9.0.40929.0%20%28Windows%29&asid=43624b7fbfc64b63a082235fcdd61075&ctmode=MultiSession&arch=x64&cdm=1&cdmver=10.0.15063.0&currsel=131822792820000000&devfam=Windows.Desktop&devform=Unknown&devosver=10.0.15063.0&disphorzres=1024&dispsize=13.3&dispvertres=768&isu=0&lo=1344015&metered=false&nettype=ethernet&npid=sc-280815&oemName=Bochs&oemid=Bochs&ossku=Professional&smBiosDm=Bochs&smBiosManufacturerName=Bochs&tl=4&tsu=1344015&waasBldFlt=1&waasCfgExp=1&waasCfgSet=1&waasRetail=1&waasRing= (2393 bytes)
+2020-07-30 11:49:21.233 [10195] PROXY 127.0.0.1:64945 (10.119.46.48) <- 200 firefox.settings.services.mozilla.com:443 (972 bytes)
+2020-07-30 11:49:21.289 [10195] PROXY 127.0.0.1:64894 (10.119.23.229) -> GET http://localhost:9877/socket.io/?EIO=3&transport=polling&t=NEUO0hB&sid=mWnhRPPY7SBVQcVVAAAB (564 bytes)
+2020-07-30 11:49:21.290 [10195] PROXY 127.0.0.1:64894 (10.119.23.229) <- 200 localhost:9877 (269 bytes)
+2020-07-30 11:49:21.302 [10195] PROXY 127.0.0.1:64876 (10.119.46.48) -> GET http://localhost:9877/socket.io/?EIO=3&transport=polling&t=NEUO0Mi&sid=tYVvUfNTSJT4sYniAAAC (603 bytes)
+2020-07-30 11:49:21.303 [10195] PROXY 127.0.0.1:64876 (10.119.46.48) <- 200 localhost:9877 (483 bytes)
+2020-07-30 11:49:21.346 [10195] PROXY 127.0.0.1:64939 (10.119.89.167) -> GET http://localhost:9877/socket.io/?EIO=3&transport=polling&t=NEUO0Z8&sid=6DF1CvKqGY2zBJYFAAAA (713 bytes)
+2020-07-30 11:49:21.348 [10195] PROXY 127.0.0.1:64939 (10.119.89.167) <- 200 localhost:9877 (248 bytes)
+2020-07-30 11:49:21.351 [10195] PROXY resolved 'arc.msn.com' to '51.104.144.132'
+2020-07-30 11:49:21.375 [10195] PROXY 127.0.0.1:64937 (10.119.46.48) <- 200 tracking-protection.cdn.mozilla.net:443 (232630 bytes)
+2020-07-30 11:49:21.575 [10195] PROXY 127.0.0.1:64945 (10.119.46.48) -> GET https://firefox.settings.services.mozilla.com/v1/buckets/main/collections/cfr/changeset?_expected=1595618527799 (598 bytes)
+2020-07-30 11:49:21.604 [10195] Number of jobs using tunnel: 3.
+2020-07-30 11:49:21.627 [10195] PROXY resolved 'localhost' to '127.0.0.1'
+2020-07-30 11:49:21.628 [10195] PROXY 127.0.0.1:64969 (10.119.23.229) -> POST http://localhost:9877/socket.io/?EIO=3&transport=polling&t=NEUO0mN&sid=mWnhRPPY7SBVQcVVAAAB (645 bytes)
+2020-07-30 11:49:21.630 [10195] PROXY 127.0.0.1:64969 (10.119.23.229) <- 200 localhost:9877 (251 bytes)
+2020-07-30 11:49:21.669 [10195] PROXY resolved 'localhost' to '127.0.0.1'
+2020-07-30 11:49:21.670 [10195] PROXY 127.0.0.1:64971 (10.119.46.48) -> POST http://localhost:9877/socket.io/?EIO=3&transport=polling&t=NEUO0S2&sid=tYVvUfNTSJT4sYniAAAC (678 bytes)
+2020-07-30 11:49:21.671 [10195] PROXY 127.0.0.1:64971 (10.119.46.48) <- 200 localhost:9877 (290 bytes)
+2020-07-30 11:49:21.693 [10195] PROXY resolved 'localhost' to '127.0.0.1'
+2020-07-30 11:49:21.694 [10195] PROXY 127.0.0.1:64973 (10.119.89.167) -> POST http://localhost:9877/socket.io/?EIO=3&transport=polling&t=NEUO0fB&sid=6DF1CvKqGY2zBJYFAAAA (788 bytes)
+2020-07-30 11:49:21.695 [10195] PROXY 127.0.0.1:64973 (10.119.89.167) <- 200 localhost:9877 (290 bytes)
+2020-07-30 11:49:21.703 [10195] PROXY 127.0.0.1:64937 (10.119.46.48) -> GET https://tracking-protection.cdn.mozilla.net/google-trackwhite-digest256/1591202430 (539 bytes)
+2020-07-30 11:49:21.845 [10195] PROXY 127.0.0.1:64945 (10.119.46.48) <- 200 firefox.settings.services.mozilla.com:443 (32558 bytes)
+2020-07-30 11:49:22.101 [10195] PROXY 127.0.0.1:64895 (10.119.46.48) <- 200 arc.msn.com:443 (1047 bytes)
+2020-07-30 11:49:22.266 [10195] PROXY 127.0.0.1:64945 (10.119.46.48) -> GET https://snippets.cdn.mozilla.net/6/Firefox/79.0/20200720193547/WINNT_x86_64-msvc/en-US/release/Windows_NT%2010.0/default/default/ (558 bytes)
+2020-07-30 11:49:22.454 [10195] PROXY resolved 'snippets.cdn.mozilla.net' to '143.204.89.46'
+2020-07-30 11:49:22.512 [10195] PROXY 127.0.0.1:64937 (10.119.46.48) <- 200 tracking-protection.cdn.mozilla.net:443 (1470808 bytes)
+2020-07-30 11:49:22.928 [10195] PROXY 127.0.0.1:64937 (10.119.46.48) -> GET https://tracking-protection.cdn.mozilla.net/allow-flashallow-digest256/1490633678 (538 bytes)
+2020-07-30 11:49:23.093 [10195] PROXY 127.0.0.1:64937 (10.119.46.48) <- 200 tracking-protection.cdn.mozilla.net:443 (526 bytes)
+2020-07-30 11:49:23.113 [10195] PROXY 127.0.0.1:64945 (10.119.46.48) <- 302 snippets.cdn.mozilla.net:443 (679 bytes)
+2020-07-30 11:49:23.420 [10195] PROXY 127.0.0.1:64937 (10.119.46.48) -> GET https://tracking-protection.cdn.mozilla.net/except-flashallow-digest256/1490633678 (539 bytes)
+2020-07-30 11:49:23.440 [10195] PROXY 127.0.0.1:64945 (10.119.46.48) -> GET https://snippets.cdn.mozilla.net/us-west/bundles-pregen/Firefox/release/en-us/default.json (519 bytes)
+2020-07-30 11:49:23.582 [10195] PROXY 127.0.0.1:64937 (10.119.46.48) <- 200 tracking-protection.cdn.mozilla.net:443 (526 bytes)
+2020-07-30 11:49:23.609 [10195] PROXY 127.0.0.1:64945 (10.119.46.48) <- 200 snippets.cdn.mozilla.net:443 (8055 bytes)
+2020-07-30 11:49:23.909 [10195] PROXY 127.0.0.1:64937 (10.119.46.48) -> GET https://tracking-protection.cdn.mozilla.net/block-flash-digest256/1496263270 (533 bytes)
+2020-07-30 11:49:23.949 [10195] PROXY resolved 'firefox.settings.services.mozilla.com' to '13.224.194.121'
+2020-07-30 11:49:23.951 [10195] PROXY 127.0.0.1:64945 (10.119.46.48) -> GET https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/records?collection=whats-new-panel&bucket=main (573 bytes)
+2020-07-30 11:49:24.070 [10195] PROXY 127.0.0.1:64937 (10.119.46.48) <- 200 tracking-protection.cdn.mozilla.net:443 (7122 bytes)
+2020-07-30 11:49:24.590 [10195] PROXY 127.0.0.1:64945 (10.119.46.48) <- 200 firefox.settings.services.mozilla.com:443 (984 bytes)

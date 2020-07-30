@@ -36,7 +36,7 @@
     "release:create": "create-release",
     "start": "ng serve",
     "test": "ng test core --watch false --code-coverage true --browsers=ChromeHeadless",
-    "test:saucelabs": "ng test core --watch false --code-coverage true --browsers=SauceLabs --karmaConfig=sauce.conf.js",
+    "test:saucelabs": "ng test core --watch false --code-coverage true --karmaConfig=saucelab/karma.conf.js",
     "active-test": "ng test core --watch true --browsers=ChromeHeadless",
     "test:coveralls": "cat ./coverage/libs/core/lcov.info  | ./node_modules/coveralls/bin/coveralls.js || echo -e \"Coveralls failed.\"",
     "compile-typedoc-all": "npm run compile-typedoc-core && npm run compile-typedoc-platform",
@@ -97,16 +97,17 @@
     "highlight.js": "9.18.1",
     "intl": "^1.2.5",
     "jasminewd2": "2.2.0",
+    "karma-sauce-launcher": "^4.1.5",
     "moment": "2.27.0",
     "ngx-markdown": "10.1.0",
     "npm": "^6.14.7",
     "popper.js": "1.16.1",
     "raw-loader": "4.0.1",
     "rxjs": "6.6.0",
+    "saucelabs": "^4.4.3",
     "tslib": "2.0.0",
     "web-animations-js": "2.3.2",
-    "zone.js": "0.10.3",
-    "karma-sauce-launcher": "^4.1.5"
+    "zone.js": "0.10.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1000.4",
