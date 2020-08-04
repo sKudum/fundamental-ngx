@@ -8,67 +8,55 @@ var fs = require('fs');
 module.exports = function (config) {
 
     // Use ENV vars on Travis and sauce.json locally to get credentials
+    if (process.env.TRAVIS) {
+        sauceLabs.build = `TRAVIS #${process.env.TRAVIS_BUILD_NUMBER} (${process.env.TRAVIS_BUILD_ID})`;
+        sauceLabs.tunnelIdentifier = process.env.TRAVIS_JOB_NUMBER;
+        // Also use the SauceLabs reporter provided by 'karma-sauce-launcher',
+        // otherwise the `{passed}` flag never gets set (hence the gray builds in the browser matrix badge).
+        reporters.push('saucelabs');
+    }
     if (!process.env.SAUCE_USERNAME) {
-        if (!fs.existsSync('sauce.json')) {
-            console.log('Create a sauce.json with your credentials based on the sauce-sample.json file.');
-            process.exit(1);
-        } else {
-            process.env.SAUCE_USERNAME = require('./sauce').username;
-            process.env.SAUCE_ACCESS_KEY = require('./sauce').accessKey;
-        }
+        process.env.SAUCE_USERNAME = require('./sauce').username;
+        process.env.SAUCE_ACCESS_KEY = require('./sauce').accessKey;
     }
 
     // Browsers to run on Sauce Labs
     var customLaunchers = {
-        'SL_Chrome': {
+        sl_chrome: {
             base: 'SauceLabs',
-            browserName: 'chrome'
-        },
-        'SL_Firefox': {
-            base: 'SauceLabs',
-            browserName: 'firefox',
+            browserName: 'chrome',
             version: 'latest'
         }
-        // 'SL_Safari': {
+        // ,
+        // sl_firefox: {
         //     base: 'SauceLabs',
-        //     browserName: 'safari',
-        //     platform: 'OS X 10.9',
-        //     version: '7'
+        //     browserName: 'firefox',
+        //     version: 'latest'
         // },
-        // 'SL_IE_9': {
+        // sl_ie_11: {
         //     base: 'SauceLabs',
         //     browserName: 'internet explorer',
-        //     platform: 'Windows 2008',
-        //     version: '9'
-        // },
-        // 'SL_IE_10': {
-        //     base: 'SauceLabs',
-        //     browserName: 'internet explorer',
-        //     platform: 'Windows 2012',
-        //     version: '10'
-        // },
-        // 'SL_IE_11': {
-        //     base: 'SauceLabs',
-        //     browserName: 'internet explorer',
-        //     platform: 'Windows 8.1',
-        //     version: '11'
+        //     version: 'latest'
         // }
     };
 
     config.set({
 
+
         // base path that will be used to resolve all patterns (eg. files, exclude)
         basePath: '',
-
-
         // frameworks to use
         // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-        frameworks: ['jasmine'],
+
+        frameworks: [
+            'jasmine',
+            "karma-typescript"
+        ],
 
         // test results reporter to use
         // possible values: 'dots', 'progress'
         // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-        reporters: ['dots'],
+        // reporters: ['dots', 'spec', 'karma-typescript'],
 
 
         // web server port
@@ -79,32 +67,57 @@ module.exports = function (config) {
 
         colors: true,
         files: [
-            //  { pattern: '/\.spec\.ts/', included: true, watched: true }
-            {
-                pattern: '../libs/core/src/lib/*/*\.spec\.ts'
-            },
-            {
-                pattern: '../libs/platform/src/lib/components/*/*\.spec\.ts'
-            }
+            './examples/src/*.js',
+            './examples/test/*.js'
         ],
-        specReporter: {
-            maxLogLines: 5,             // limit number of lines logged per test
-            suppressErrorSummary: true, // do not print error summary
-            suppressFailed: false,      // do not print information about failed tests
-            suppressPassed: false,      // do not print information about passed tests
-            suppressSkipped: true,      // do not print information about skipped tests
-            showSpecTiming: false           // test would finish with error when a first fail occurs.
+        reporters: ['progress', 'saucelabs'],
+        // files: [
+        //     { pattern: 'node_modules/**', included: false, watched: false },
+        //     { pattern: '/base.spec.ts' },
+        //     { pattern: '../libs/core/src/lib/**/*' }
+        // ],
+        // preprocessors: {
+        //     '../libs/core/src/lib/**/*.ts': ['karma-typescript']
+        // },
+        // mime: {
+        //     'text/x-typescript': ['ts', 'tsx']
+        // },
+        // coverageIstanbulReporter: {
+        //     reports: ['html', 'lcovonly'],
+        //     fixWebpackSourcePaths: true,
+        //     thresholds: {
+        //         statements: 80,
+        //         lines: 80,
+        //         branches: 40,
+        //         functions: 60
+        //     }
+        // },
+        karmaTypescriptConfig: {
+            tsconfig: './tsconfig.json'
         },
+        // specReporter: {
+        //     maxLogLines: 5,             // limit number of lines logged per test
+        //     suppressErrorSummary: true, // do not print error summary
+        //     suppressFailed: false,      // do not print information about failed tests
+        //     suppressPassed: false,      // do not print information about passed tests
+        //     suppressSkipped: true,      // do not print information about skipped tests
+        //     showSpecTiming: false           // test would finish with error when a first fail occurs.
+        // },
 
         // level of logging
         // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
         logLevel: constants.LOG_INFO,
 
         sauceLabs: {
-            testName: 'Karma and Sauce Labs demo',
             startConnect: true,
-            region: "eu-central-1"
+            region: "eu-central-1",
+            extendedDebugging: true,
+            capturePerformance: true,
+            recordScreenshots: false
         },
+        browserDisconnectTimeout: 10000, // default 2000
+        browserDisconnectTolerance: 1, // default 0
+        browserNoActivityTimeout: 4 * 60 * 1000, //default 10000
         captureTimeout: 120000,
         customLaunchers: customLaunchers,
 
