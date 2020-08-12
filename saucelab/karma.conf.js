@@ -1,3 +1,4 @@
+
 // Karma configuration file, see link for more information
 // https://karma-runner.github.io/1.0/config/configuration-file.html
 
@@ -15,10 +16,10 @@ module.exports = function (config) {
         // otherwise the `{passed}` flag never gets set (hence the gray builds in the browser matrix badge).
         reporters.push('saucelabs');
     }
-    if (!process.env.SAUCE_USERNAME) {
-        process.env.SAUCE_USERNAME = require('./sauce').username;
-        process.env.SAUCE_ACCESS_KEY = require('./sauce').accessKey;
-    }
+    // if (!process.env.SAUCE_USERNAME) {
+    //     process.env.SAUCE_USERNAME = require('./sauce').username;
+    //     process.env.SAUCE_ACCESS_KEY = require('./sauce').accessKey;
+    // }
 
     // Browsers to run on Sauce Labs
     var customLaunchers = {
@@ -42,7 +43,17 @@ module.exports = function (config) {
 
     config.set({
 
-
+        plugins: [
+            require('karma-jasmine'),
+            require('karma-chrome-launcher'),
+            require('karma-jasmine-html-reporter'),
+            require('karma-coverage-istanbul-reporter'),
+            require('karma-coverage-istanbul-reporter'),
+            require('@angular-devkit/build-angular/plugins/karma'),
+            require('karma-junit-reporter'),
+            require('karma-firefox-launcher'),
+            require('karma-sauce-launcher')
+        ],
         // base path that will be used to resolve all patterns (eg. files, exclude)
         basePath: '',
         // frameworks to use
@@ -50,7 +61,7 @@ module.exports = function (config) {
 
         frameworks: [
             'jasmine',
-            "karma-typescript"
+            '@angular-devkit/build-angular'
         ],
 
         // test results reporter to use
@@ -64,13 +75,23 @@ module.exports = function (config) {
         client: {
             clearContext: false // leave Jasmine Spec Runner output visible in browser
         },
-
+        // files: [
+        //     { pattern: '../libs/**/*.ts', watched: false }
+        // ],
+        // tests: [
+        //     { pattern: '../libs/**/*spec.ts', load: false }
+        // ],
+        // preprocessors: {
+        //     './apps/docs/src/test.ts': ['@angular-devkit/build-angular']
+        // },
+        // mime: {
+        //     'text/x-typescript': ['ts', 'tsx']
+        // },
         colors: true,
         files: [
             './examples/src/*.js',
             './examples/test/*.js'
         ],
-        reporters: ['progress', 'saucelabs'],
         // files: [
         //     { pattern: 'node_modules/**', included: false, watched: false },
         //     { pattern: '/base.spec.ts' },
@@ -92,9 +113,9 @@ module.exports = function (config) {
         //         functions: 60
         //     }
         // },
-        karmaTypescriptConfig: {
-            tsconfig: './tsconfig.json'
-        },
+        // karmaTypescriptConfig: {
+        //     tsconfig: './tsconfig.json'
+        // },
         // specReporter: {
         //     maxLogLines: 5,             // limit number of lines logged per test
         //     suppressErrorSummary: true, // do not print error summary
@@ -109,6 +130,7 @@ module.exports = function (config) {
         logLevel: constants.LOG_INFO,
 
         sauceLabs: {
+            testName: TRAVIS_JOB_NUMBER,
             startConnect: true,
             region: "eu-central-1",
             extendedDebugging: true,
@@ -127,3 +149,4 @@ module.exports = function (config) {
         singleRun: true
     });
 };
+
